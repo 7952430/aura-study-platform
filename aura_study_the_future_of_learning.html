@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura Study | The Future of Learning</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#211e27",
+                    "error-container": "#93000a",
+                    "primary-fixed": "#e9ddff",
+                    "on-background": "#e7e0ed",
+                    "on-primary": "#3c0091",
+                    "inverse-primary": "#6d3bd7",
+                    "secondary-fixed-dim": "#89ceff",
+                    "on-primary-fixed": "#23005c",
+                    "on-error": "#690005",
+                    "primary-fixed-dim": "#d0bcff",
+                    "surface-variant": "#37333d",
+                    "on-secondary-fixed-variant": "#004c6e",
+                    "secondary": "#89ceff",
+                    "on-secondary": "#00344d",
+                    "secondary-fixed": "#c9e6ff",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#3b3742",
+                    "primary-container": "#a078ff",
+                    "on-surface": "#e7e0ed",
+                    "tertiary-fixed": "#a2eeff",
+                    "primary": "#d0bcff",
+                    "surface-dim": "#15121b",
+                    "secondary-container": "#00a2e6",
+                    "on-tertiary": "#00363e",
+                    "on-surface-variant": "#cbc3d7",
+                    "on-secondary-fixed": "#001e2f",
+                    "on-tertiary-fixed-variant": "#004e5a",
+                    "on-tertiary-fixed": "#001f25",
+                    "on-secondary-container": "#00344e",
+                    "on-primary-container": "#340080",
+                    "outline-variant": "#494454",
+                    "surface-tint": "#d0bcff",
+                    "surface-container-highest": "#37333d",
+                    "surface-container-lowest": "#0f0d15",
+                    "tertiary": "#2fd9f4",
+                    "tertiary-container": "#009fb4",
+                    "on-primary-fixed-variant": "#5516be",
+                    "outline": "#958ea0",
+                    "inverse-on-surface": "#322f39",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-high": "#2c2832",
+                    "tertiary-fixed-dim": "#2fd9f4",
+                    "background": "#15121b",
+                    "surface-container-low": "#1d1a23",
+                    "surface": "#15121b",
+                    "on-tertiary-container": "#002f36",
+                    "inverse-surface": "#e7e0ed"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "stack-md": "16px",
+                    "stack-sm": "8px",
+                    "margin-desktop": "40px",
+                    "margin-mobile": "16px",
+                    "section-gap": "80px",
+                    "unit": "8px",
+                    "stack-lg": "32px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Inter"],
+                    "label-md": ["Geist"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "title-md": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0A0A1B;
+            color: #e7e0ed;
+            overflow-x: hidden;
+        }
+        .aura-glow {
+            filter: blur(80px);
+            opacity: 0.15;
+            position: absolute;
+            z-index: -1;
+            border-radius: 50%;
+        }
+        .glass-card {
+            background: rgba(22, 22, 45, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: #d0bcff40;
+            box-shadow: 0 0 30px rgba(208, 188, 255, 0.1);
+            transform: translateY(-4px);
+        }
+        .inner-glow-btn {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md bg-background selection:bg-primary/30">
+<!-- Ambient Background Decorations -->
+<div class="aura-glow bg-primary w-[500px] h-[500px] -top-48 -left-24"></div>
+<div class="aura-glow bg-tertiary w-[400px] h-[400px] top-1/2 -right-24"></div>
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 px-gutter py-4">
+<div class="max-w-container-max mx-auto flex justify-between items-center">
+<div class="flex items-center gap-12">
+<a class="font-display-lg text-[24px] font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary" href="#">
+                    Aura Study
+                </a>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">Categories</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Library</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Tutoring</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center bg-white/5 rounded-full px-4 py-2 border border-white/5 focus-within:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-48 text-on-surface placeholder:text-on-surface-variant/50" placeholder="Search knowledge..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<button class="font-label-md text-label-md bg-white/5 px-6 py-2 rounded-full border border-white/10 hover:bg-white/10 transition-all">Login</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="relative pt-32">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-gutter text-center py-24 relative">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
+
+</div>
+<div class="relative z-10 space-y-stack-lg max-w-4xl mx-auto">
+<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-md text-[12px] uppercase tracking-widest mb-4">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                    Powered by Aura AI 2.0
+                </div>
+<h1 class="font-display-lg text-display-lg md:text-[72px] md:leading-[80px] leading-tight text-on-surface">
+                    The Future of <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-secondary">Learning</span> Starts Here.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+                    Master any subject with AI-powered lessons, interactive explanations, quizzes, visual learning, and personalized study paths.
+                </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-stack-md">
+<button class="group relative px-10 py-4 bg-primary text-on-primary font-label-md rounded-xl overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_32px_rgba(160,120,255,0.3)]">
+<span class="relative z-10 flex items-center gap-2">
+                            Start Learning <span class="material-symbols-outlined">arrow_forward</span>
+</span>
+<div class="absolute inset-0 inner-glow-btn opacity-50 group-hover:opacity-100 transition-opacity"></div>
+</button>
+<button class="px-10 py-4 bg-transparent border border-white/10 text-on-surface font-label-md rounded-xl hover:bg-white/5 transition-all">
+                        Explore Courses
+                    </button>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="max-w-container-max mx-auto px-gutter py-section-gap">
+<div class="flex flex-col items-center text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Master Your Mindflow</h2>
+<p class="text-on-surface-variant max-w-xl">Deep cognitive focus meets cutting-edge generative AI to accelerate your path to mastery.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-full md:h-[600px]">
+<!-- Main Feature -->
+<div class="md:col-span-7 glass-card rounded-3xl p-8 flex flex-col justify-between overflow-hidden relative group">
+<div class="relative z-10">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-[28px]">psychology</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-4">AI Tutor</h3>
+<p class="text-on-surface-variant max-w-md">24/7 personal guidance that adapts to your unique learning style. It doesn't just give answers; it explains the 'why'.</p>
+</div>
+<div class="relative mt-8 h-48 md:h-64 rounded-2xl overflow-hidden border border-white/5">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A futuristic digital interface showing an AI assistant avatar with glowing teal and purple orbits, floating in a clean dark minimalist space with subtle data streams." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyNSwNYveVD12t00qoVI3Nqvb5lD9__O2E_Om12nOre4i2QOPJPL5qOPhV8dks2MEL1orXWRPi7yNM1PxedfMd6SzEqTiIQluP-NFRofvoM8nagjVWG7_6WXJUqNRKqHFiH9EaqKQ-o5D4mHRLTNtjvyFvE6x5_YFtXAaTK2mFEd1wsdpUh3ZdfEhm68ofavPYLRPyf0N5_XnUxEpL3EGhLf1GA4OpKQBSBuOD7XRSz4r7hYnvTiEBWW4d0DyufKdZGB33lLwvMQ"/>
+</div>
+</div>
+<!-- Secondary Column -->
+<div class="md:col-span-5 grid grid-rows-2 gap-6">
+<div class="glass-card rounded-3xl p-8 flex items-center gap-6 group">
+<div class="flex-1">
+<h3 class="font-title-md text-title-md mb-2">Visual Animations</h3>
+<p class="text-on-surface-variant text-body-md">Complex concepts decoded through beautiful, interactive simulations.</p>
+</div>
+<div class="w-24 h-24 rounded-2xl bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[40px]" style="font-variation-settings: 'FILL' 1;">animation</span>
+</div>
+</div>
+<div class="glass-card rounded-3xl p-8 flex items-center gap-6 group">
+<div class="flex-1">
+<h3 class="font-title-md text-title-md mb-2">Practice Quizzes</h3>
+<p class="text-on-surface-variant text-body-md">Adaptive testing that focuses on your weak points until they become strengths.</p>
+</div>
+<div class="w-24 h-24 rounded-2xl bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[40px]" style="font-variation-settings: 'FILL' 1;">quiz</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Smaller Features Row -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6">
+<div class="glass-card rounded-2xl p-6 text-center">
+<span class="material-symbols-outlined text-primary mb-4 text-[32px]">interactive_space</span>
+<h4 class="font-title-md text-title-md mb-2">Interactive Lessons</h4>
+<p class="text-on-surface-variant text-label-md">Learn by doing, not just reading.</p>
+</div>
+<div class="glass-card rounded-2xl p-6 text-center">
+<span class="material-symbols-outlined text-secondary mb-4 text-[32px]">style</span>
+<h4 class="font-title-md text-title-md mb-2">Flashcards</h4>
+<p class="text-on-surface-variant text-label-md">Spaced repetition for long-term retention.</p>
+</div>
+<div class="glass-card rounded-2xl p-6 text-center">
+<span class="material-symbols-outlined text-tertiary mb-4 text-[32px]">lightbulb</span>
+<h4 class="font-title-md text-title-md mb-2">Real-life Examples</h4>
+<p class="text-on-surface-variant text-label-md">Concrete applications for abstract ideas.</p>
+</div>
+<div class="glass-card rounded-2xl p-6 text-center">
+<span class="material-symbols-outlined text-on-surface-variant mb-4 text-[32px]">trending_up</span>
+<h4 class="font-title-md text-title-md mb-2">Progress Tracking</h4>
+<p class="text-on-surface-variant text-label-md">Visualize your journey to mastery.</p>
+</div>
+</div>
+</section>
+<!-- Categories Grid -->
+<section class="max-w-container-max mx-auto px-gutter py-section-gap border-t border-white/5">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Popular Categories</h2>
+<p class="text-on-surface-variant">Choose your path and start your deep-dive session.</p>
+</div>
+<button class="text-primary font-label-md flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    View All <span class="material-symbols-outlined">grid_view</span>
+</button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+<!-- AI -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">hub</span>
+<span class="font-label-md text-label-md">Artificial Intelligence</span>
+</a>
+<!-- Programming -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">terminal</span>
+<span class="font-label-md text-label-md">Programming</span>
+</a>
+<!-- Math -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">functions</span>
+<span class="font-label-md text-label-md">Mathematics</span>
+</a>
+<!-- Physics -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">blur_on</span>
+<span class="font-label-md text-label-md">Physics</span>
+</a>
+<!-- Chemistry -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">science</span>
+<span class="font-label-md text-label-md">Chemistry</span>
+</a>
+<!-- Biology -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">biotech</span>
+<span class="font-label-md text-label-md">Biology</span>
+</a>
+<!-- Medical -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">medical_services</span>
+<span class="font-label-md text-label-md">Medical</span>
+</a>
+<!-- Engineering -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">engineering</span>
+<span class="font-label-md text-label-md">Engineering</span>
+</a>
+<!-- Cybersecurity -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">security</span>
+<span class="font-label-md text-label-md">Cyber Security</span>
+</a>
+<!-- Business -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">business_center</span>
+<span class="font-label-md text-label-md">Business</span>
+</a>
+<!-- Finance -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">monetization_on</span>
+<span class="font-label-md text-label-md">Finance</span>
+</a>
+<!-- Languages -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">language</span>
+<span class="font-label-md text-label-md">Languages</span>
+</a>
+<!-- History -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">history_edu</span>
+<span class="font-label-md text-label-md">History</span>
+</a>
+<!-- Geography -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">public</span>
+<span class="font-label-md text-label-md">Geography</span>
+</a>
+<!-- Astronomy -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">rocket_launch</span>
+<span class="font-label-md text-label-md">Astronomy</span>
+</a>
+<!-- Space Science -->
+<a class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-[32px] text-primary">flare</span>
+<span class="font-label-md text-label-md">Space Science</span>
+</a>
+</div>
+</section>
+<!-- CTA "Aura" Section -->
+<section class="max-w-container-max mx-auto px-gutter py-section-gap">
+<div class="relative overflow-hidden rounded-[40px] p-12 md:p-24 text-center glass-card border-none bg-gradient-to-br from-surface-container to-surface-container-low shadow-2xl">
+<div class="absolute inset-0 pointer-events-none opacity-20">
+
+</div>
+<div class="relative z-10 space-y-8">
+<h2 class="font-display-lg text-headline-lg md:text-[48px] text-on-surface">Ready to unlock your full potential?</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto text-body-lg">Join thousands of students who have already accelerated their learning with the power of Aura AI.</p>
+<div class="flex flex-wrap items-center justify-center gap-6">
+<button class="px-12 py-5 bg-primary text-on-primary font-bold rounded-2xl hover:scale-105 transition-transform shadow-[0_0_40px_rgba(160,120,255,0.4)]">
+                            Join for Free
+                        </button>
+<button class="px-12 py-5 bg-white/5 border border-white/10 text-on-surface font-bold rounded-2xl hover:bg-white/10 transition-all">
+                            Talk to AI Tutor
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-white/5 mt-section-gap">
+<div class="max-w-container-max mx-auto px-margin-desktop py-stack-lg grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="space-y-6">
+<div class="font-display-lg-mobile text-display-lg-mobile font-black text-on-surface">Aura Study</div>
+<p class="text-on-surface-variant font-body-md">Elevate your cognitive flow. Master any skill with precision and speed.</p>
+<div class="flex items-center gap-4">
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">share</span></a>
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">public</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-6 uppercase tracking-wider">Product</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Courses</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">AI Tutor</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Pricing</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Library</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-6 uppercase tracking-wider">Resources</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Documentation</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Community</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Blog</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Sitemap</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-6 uppercase tracking-wider">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Cookies</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant text-label-md">© 2024 Aura Study. Elevate your cognitive flow.</p>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-on-surface-variant hover:text-secondary text-label-md" href="#">English</a>
+<a class="text-on-surface-variant hover:text-secondary text-label-md" href="#">Urdu</a>
+<a class="text-on-surface-variant hover:text-secondary text-label-md" href="#">Hindi</a>
+<a class="text-on-surface-variant hover:text-secondary text-label-md" href="#">Arabic</a>
+<a class="text-on-surface-variant hover:text-secondary text-label-md" href="#">Spanish</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

@@ -3,334 +3,531 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Aura AI | Intelligent Learning Interface</title>
+<title>Aura Study | The Future of Learning</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#1c1b20",
+                    "surface-variant": "#36343a",
+                    "secondary-container": "#00a6e0",
+                    "background": "#141318",
+                    "surface-bright": "#3a383e",
+                    "on-surface": "#e6e1e8",
+                    "surface-container": "#201f24",
+                    "error": "#ffb4ab",
+                    "on-primary-container": "#3c1989",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary": "#00354a",
+                    "on-primary-fixed": "#21005e",
+                    "surface-container-high": "#2b292f",
+                    "surface-tint": "#cebdff",
+                    "primary-fixed": "#e8ddff",
+                    "error-container": "#93000a",
+                    "on-surface-variant": "#cac4d4",
+                    "tertiary-fixed-dim": "#bcc7de",
+                    "inverse-on-surface": "#312f35",
+                    "on-error": "#690005",
+                    "surface": "#141318",
+                    "tertiary": "#bcc7de",
+                    "on-tertiary-fixed-variant": "#3c475a",
+                    "on-secondary-container": "#00374d",
+                    "primary-fixed-dim": "#cebdff",
+                    "outline": "#948e9d",
+                    "inverse-surface": "#e6e1e8",
+                    "tertiary-container": "#929db3",
+                    "secondary-fixed-dim": "#7bd0ff",
+                    "on-background": "#e6e1e8",
+                    "on-tertiary": "#263143",
+                    "primary-container": "#a78bfa",
+                    "outline-variant": "#494552",
+                    "on-secondary-fixed-variant": "#004c69",
+                    "on-tertiary-fixed": "#111c2d",
+                    "on-primary": "#381385",
+                    "on-tertiary-container": "#2a3547",
+                    "secondary": "#7bd0ff",
+                    "primary": "#cebdff",
+                    "surface-container-highest": "#36343a",
+                    "surface-container-lowest": "#0f0d13",
+                    "on-secondary-fixed": "#001e2c",
+                    "surface-dim": "#141318",
+                    "on-primary-fixed-variant": "#4f319c",
+                    "tertiary-fixed": "#d8e3fb",
+                    "inverse-primary": "#674bb5",
+                    "secondary-fixed": "#c4e7ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "24px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "container-max": "1200px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "40px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
 <style>
-        :root {
-            --aura-glow: rgba(208, 188, 255, 0.15);
-            --tertiary-glow: rgba(47, 217, 244, 0.1);
-        }
         body {
-            background-color: #0f0d15;
-            color: #e7e0ed;
-            overflow-x: hidden;
+            background-color: #0B0A0F;
+            color: #e6e1e8;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
         .glass-panel {
-            background: rgba(21, 18, 27, 0.8);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+        }
+        .aura-shadow {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #cebdff 0%, #7bd0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-blur {
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .aura-card-glow:hover {
-            box-shadow: 0 0 32px var(--aura-glow);
-            border-color: #d0bcff33;
-        }
-        .ai-insight-mesh {
-            background: linear-gradient(135deg, rgba(47, 217, 244, 0.05) 0%, rgba(160, 120, 255, 0.05) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .ai-insight-mesh::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(47, 217, 244, 0.03) 0%, transparent 50%);
-            animation: mesh-flow 15s linear infinite;
-        }
-        @keyframes mesh-flow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-        }
-        .active-tab-glow {
-            box-shadow: 0 0 16px rgba(160, 120, 255, 0.2);
+            -webkit-backdrop-filter: blur(20px);
         }
     </style>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface-container": "#211e27",
-                        "primary-container": "#a078ff",
-                        "on-primary-container": "#340080",
-                        "primary": "#d0bcff",
-                        "secondary": "#89ceff",
-                        "tertiary": "#2fd9f4",
-                        "surface": "#15121b",
-                        "background": "#15121b",
-                        "surface-container-low": "#1d1a23",
-                        "surface-container-lowest": "#0f0d15",
-                        "on-surface": "#e7e0ed",
-                        "on-surface-variant": "#cbc3d7"
-                    },
-                    "spacing": {
-                        "gutter": "24px",
-                        "stack-md": "16px",
-                        "stack-lg": "32px",
-                        "section-gap": "80px",
-                        "container-max": "1280px"
-                    },
-                    "fontFamily": {
-                        "display-lg": ["Inter"],
-                        "label-md": ["Geist"],
-                        "body-md": ["Inter"],
-                        "headline-lg": ["Inter"]
-                    },
-                    "fontSize": {
-                        "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
-                    }
-                }
-            }
-        }
-    </script>
 </head>
-<body class="font-body-md text-on-surface selection:bg-primary/30">
+<body class="bg-background text-on-background">
 <!-- TopNavBar -->
-<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter py-4 max-w-full mx-auto bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_24px_rgba(208,188,255,0.15)]">
-<div class="flex items-center gap-8">
-<span class="font-display-lg text-[28px] font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary">Aura Study</span>
-<div class="hidden md:flex items-center gap-6">
-<a class="font-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Categories</a>
-<a class="font-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Library</a>
-<a class="font-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Tutoring</a>
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl border-b border-white/10 dark:border-white/5 shadow-sm">
+<div class="flex justify-between items-center h-16 px-margin-desktop max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-semibold tracking-tight text-on-surface dark:text-on-surface">
+                Aura Study
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary dark:text-primary-fixed font-medium border-b-2 border-primary py-1" href="#">Home</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Courses</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Subjects</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Contact</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Dashboard</a>
 </div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-body-md text-body-md font-medium active:scale-95 transition-transform">
+                Start Learning
+            </button>
 </div>
-<div class="flex items-center gap-4">
-<div class="relative hidden sm:block">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
-<input class="bg-surface-container-low border border-white/5 rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all w-64" placeholder="Search lessons..." type="text"/>
-</div>
-<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
-<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/20">
-<img class="w-full h-full object-cover" data-alt="A sophisticated professional headshot of a young student with creative energy, captured in soft, cinematic studio lighting that emphasizes a modern, tech-focused aesthetic. The background is a clean, dark navy with a subtle violet aura glow that matches the premium minimalist design of the interface. The student wears a high-end, neutral-toned sweater, suggesting a focused and studious personality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkmWG2z_OfvqAcxrtZsGaqBdO5FkKl4TDYk9Qtr47jYc4eNsqO-FbNZxwnkddJUVIHkfyPOCuG1TEqfUodxN-YgkXfLwk-BP5biS-KethI4mbxSTg4gaTbcQ4hDImmRgl4zMxXd43XpmPKsw722woIzUoHSdL_Xqa2zmvgiFmVQvx7eRiWYlipRlSwEzimLeDBlLmZ927bWoJt3l7L_CQyk9OORjMEm6BxY_QBTpH54rLDWIIzrsPmWCG3BmNsobggGBDirlKEgg"/>
-</div>
-</div>
-</header>
-<!-- SideNavBar -->
-<aside class="fixed left-0 top-0 h-full z-40 flex flex-col p-4 gap-stack-md bg-surface-container-low/90 dark:bg-surface-container-low/90 backdrop-blur-2xl border-r border-white/5 shadow-[48px_0_48px_-24px_rgba(47,217,244,0.05)] w-64 pt-24 hidden md:flex">
-<div class="flex items-center gap-3 mb-6 px-2">
-<div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-</div>
-<div>
-<p class="font-label-md text-primary leading-none">Aura AI</p>
-<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">Your Personal Tutor</p>
-</div>
-</div>
-<nav class="flex-1 flex flex-col gap-1">
-<button class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-xl transition-all duration-200 group">
-<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">dashboard</span>
-<span class="font-label-md">Dashboard</span>
-</button>
-<button class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-xl shadow-[0_0_16px_rgba(160,120,255,0.2)] transition-all">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
-<span class="font-label-md">Ask AI</span>
-</button>
-<button class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-xl transition-all duration-200 group">
-<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">description</span>
-<span class="font-label-md">Summarize</span>
-</button>
-<button class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-xl transition-all duration-200 group">
-<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">translate</span>
-<span class="font-label-md">Translate</span>
-</button>
-<button class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-xl transition-all duration-200 group">
-<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">quiz</span>
-<span class="font-label-md">Flashcards</span>
-</button>
 </nav>
-<div class="mt-auto border-t border-white/5 pt-4 flex flex-col gap-1">
-<button class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-xl transition-all duration-200">
-<span class="material-symbols-outlined">settings</span>
-<span class="font-label-md">Settings</span>
-</button>
-<button class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-xl transition-all duration-200">
-<span class="material-symbols-outlined">help_outline</span>
-<span class="font-label-md">Help</span>
-</button>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-margin-mobile md:px-margin-desktop">
+<div class="absolute inset-0 z-0">
+<img alt="" class="w-full h-full object-cover opacity-40 mix-blend-lighten" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmdG96c8PQG0mLbIJNG2CoAXMIuClRB4TYjLm8Eu-Hr1771Zl2z4LP2kewe1PxMWGnuBdLeCqo8g9ZWUYeiNpWk2bVzCoDizugvHGgLZ2TFdtSoQdla_0Uq461AQJFA4YUYXb8lv8dbU9YZMFXPszgzaXoGxse--duxhY50ILasuvtfXLQboybeLhyD06bVzYJmm7X-CTEXY2LHFKfNoM9XmQK5hyQb20o0ryKHR8WwbYrdeJ_QduXhxYS8R_8j0o9tpSTBoFNWQ"/>
+<div class="absolute inset-0 bg-gradient-to-b from-background/0 via-background/60 to-background"></div>
 </div>
-</aside>
-<!-- Main Content Canvas -->
-<main class="md:pl-64 pt-24 min-h-screen flex flex-col">
-<div class="flex-1 max-w-5xl mx-auto w-full px-6 flex flex-col relative pb-32">
-<!-- Chat Interface Header -->
-<div class="flex items-center justify-between py-6 border-b border-white/5 mb-8">
-<div class="flex flex-col">
-<h1 class="font-headline-lg text-headline-lg text-on-surface">Cognitive Session</h1>
-<p class="text-on-surface-variant font-body-md">Exploring Quantum Computing Basics</p>
-</div>
-<div class="flex gap-2">
-<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 hover:bg-white/5 transition-all text-sm font-label-md">
-<span class="material-symbols-outlined text-[18px]">history</span>
-                        History
+<div class="relative z-10 max-w-4xl text-center space-y-8">
+<div class="inline-flex items-center px-4 py-1.5 rounded-full glass-panel text-primary font-label-sm uppercase tracking-widest animate-fade-in">
+                    Academic Excellence
+                </div>
+<h1 class="font-headline-lg text-headline-lg md:text-[64px] md:leading-[1.1] font-bold tracking-tight text-on-surface">
+                    The Future of Learning <span class="text-gradient block md:inline">Starts Here.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto opacity-80">
+                    Master any subject with interactive lessons, visual explanations, quizzes, and AI-powered learning tailored to your unique pace.
+                </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-4 pt-4">
+<button class="w-full md:w-auto px-10 py-4 rounded-full bg-primary text-on-primary font-body-md text-body-md font-semibold hover:opacity-90 active:scale-95 transition-all aura-shadow">
+                        Start Learning
                     </button>
-<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-on-primary-container font-label-md hover:shadow-lg hover:shadow-primary/20 transition-all text-sm">
-<span class="material-symbols-outlined text-[18px]">add</span>
-                        New Session
+<button class="w-full md:w-auto px-10 py-4 rounded-full glass-panel text-on-surface font-body-md text-body-md font-medium hover:bg-white/10 transition-all border border-white/10">
+                        Explore Courses
                     </button>
 </div>
 </div>
-<!-- Chat History Area -->
-<div class="flex-1 overflow-y-auto space-y-8 custom-scrollbar pb-12">
-<!-- AI Message -->
-<div class="flex gap-4 max-w-3xl">
-<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</section>
+<!-- Featured Subjects Section -->
+<section class="py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">Popular Subjects</h2>
+<div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
 </div>
-<div class="flex flex-col gap-2">
-<div class="ai-insight-mesh p-6 rounded-2xl rounded-tl-none border border-white/10 glass-panel">
-<p class="font-body-md leading-relaxed text-on-surface">
-                                Hello! I'm Aura, your AI learning companion. I'm ready to help you master Quantum Computing. Where should we begin today? We could start with the concept of <span class="text-tertiary font-semibold underline decoration-tertiary/30 cursor-pointer">Superposition</span> or dive straight into <span class="text-secondary font-semibold underline decoration-secondary/30 cursor-pointer">Qubits</span>.
-                            </p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-gutter">
+<!-- Subject Cards -->
+<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">neurology</span>
 </div>
-<span class="text-[10px] text-on-surface-variant uppercase tracking-widest pl-2">Aura AI • 10:24 AM</span>
+<span class="font-body-md text-body-md font-medium">Artificial Intelligence</span>
 </div>
+<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">code</span>
 </div>
-<!-- User Message -->
-<div class="flex gap-4 max-w-3xl ml-auto flex-row-reverse">
-<div class="w-10 h-10 rounded-full border border-white/20 overflow-hidden shrink-0">
-<img class="w-full h-full object-cover" data-alt="A portrait of a thoughtful student looking at a screen, illuminated by the cool blue light of a monitor. The image follows a high-key, cinematic style with shallow depth of field, set in a modern home office with minimalist wooden and glass textures. The atmosphere is quiet, professional, and reflects a state of deep cognitive flow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxEDwGt0u89TMD2u7o1zOY2bFyBhY1-eqFLl-hjvu6xlOTTG9RzhHhlj4jHj4Cm70rhbo3x6szjgeHKGzymn0h1cneN-48l7yTMZPunCF-R-FtYa-IgD75FrPFb4yr06nLn70Bbm6u9YuhkWE5YFsSjFizq59n4hvROLcIi9LL4gVmgXReahtJ81A1GKjENiVJUQmf7vXK_het3jr1TGeRngdoZcB_8GtVMISvObQ6xHSBIrg9qJx__gkhaMcUJeWxI3JR8bi-MA"/>
+<span class="font-body-md text-body-md font-medium">Programming</span>
 </div>
-<div class="flex flex-col gap-2 items-end">
-<div class="p-6 rounded-2xl rounded-tr-none bg-surface-container border border-white/5">
-<p class="font-body-md leading-relaxed text-on-surface">
-                                Can you explain Superposition in a way that's easy to visualize? I'm struggling with the "both states at once" part.
-                            </p>
+<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">function</span>
 </div>
-<span class="text-[10px] text-on-surface-variant uppercase tracking-widest pr-2">You • 10:25 AM</span>
+<span class="font-body-md text-body-md font-medium">Mathematics</span>
 </div>
+<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">lyrics</span>
 </div>
-<!-- AI Message with Deep Insight -->
-<div class="flex gap-4 max-w-4xl">
-<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-body-md text-body-md font-medium">Physics</span>
 </div>
-<div class="flex flex-col gap-2 flex-1">
-<div class="ai-insight-mesh p-6 rounded-2xl rounded-tl-none border border-white/10 glass-panel shadow-[0_0_48px_rgba(47,217,244,0.05)]">
-<h3 class="text-tertiary font-semibold mb-4 flex items-center gap-2">
-<span class="material-symbols-outlined text-[20px]">lightbulb</span>
-                                The Coin Analogy
-                            </h3>
-<p class="font-body-md leading-relaxed text-on-surface mb-4">
-                                Imagine a coin on a table. In classical physics, it's either **Heads** or **Tails**. That's a regular bit.
-                            </p>
-<p class="font-body-md leading-relaxed text-on-surface mb-6">
-                                Now, imagine **spinning** that coin. While it's spinning on its edge, it isn't definitely Heads, and it isn't definitely Tails. It's in a blur of both states. That blur is **Superposition**. 
-                            </p>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<div class="bg-surface/50 p-4 rounded-xl border border-white/5 aura-card-glow transition-all">
-<p class="text-primary font-label-md mb-1">State: 0</p>
-<p class="text-xs text-on-surface-variant">The coin is static on Heads.</p>
+<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-error group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">urology</span>
 </div>
-<div class="bg-surface/50 p-4 rounded-xl border border-white/5 aura-card-glow transition-all">
-<p class="text-tertiary font-label-md mb-1">State: Superposition</p>
-<p class="text-xs text-on-surface-variant">The coin is spinning rapidly.</p>
+<span class="font-body-md text-body-md font-medium">Biology</span>
 </div>
+<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary-fixed group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">science</span>
 </div>
+<span class="font-body-md text-body-md font-medium">Chemistry</span>
 </div>
-<span class="text-[10px] text-on-surface-variant uppercase tracking-widest pl-2">Aura AI • 10:26 AM</span>
+<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-tertiary-fixed-dim group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">payments</span>
+</div>
+<span class="font-body-md text-body-md font-medium">Business</span>
+</div>
+<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary-fixed group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">translate</span>
+</div>
+<span class="font-body-md text-body-md font-medium">English</span>
 </div>
 </div>
+</section>
+<!-- Why Choose Aura Study Section -->
+<section class="py-24 bg-surface-container-lowest/50">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+<div class="lg:col-span-1 space-y-6">
+<h2 class="font-headline-lg text-headline-lg leading-tight">Elevate Your Understanding</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">We strip away the noise and focus on cognitive clarity. Our platform is designed to make learning effortless and deeply engaging.</p>
 </div>
-<!-- Floating Quick Actions & Input Area -->
-<div class="fixed bottom-0 left-0 md:left-64 right-0 p-6 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/95 to-transparent">
-<div class="max-w-4xl mx-auto flex flex-col gap-4">
-<!-- Preset Quick Actions -->
-<div class="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
-<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-white/10 glass-panel text-xs font-label-md hover:border-primary/50 hover:bg-primary/5 transition-all">Explain like I'm 10</button>
-<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-white/10 glass-panel text-xs font-label-md hover:border-primary/50 hover:bg-primary/5 transition-all">Explain with examples</button>
-<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-white/10 glass-panel text-xs font-label-md hover:border-primary/50 hover:bg-primary/5 transition-all">Generate practice questions</button>
-<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-white/10 glass-panel text-xs font-label-md hover:border-primary/50 hover:bg-primary/5 transition-all">Summarize lesson</button>
-<div class="relative group">
-<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-white/10 glass-panel text-xs font-label-md hover:border-primary/50 hover:bg-primary/5 transition-all flex items-center gap-1">
-                                Translate 
-                                <span class="material-symbols-outlined text-[14px]">expand_more</span>
-</button>
-</div>
-</div>
-<!-- Input Bar -->
-<div class="relative">
-<div class="glass-panel p-2 rounded-2xl border border-white/10 flex items-center gap-2 focus-within:border-primary/30 transition-all shadow-2xl">
-<button class="w-10 h-10 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
-<span class="material-symbols-outlined">attach_file</span>
-</button>
-<input class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-on-surface-variant/50 px-2 font-body-md" placeholder="Ask anything about the lesson..." type="text"/>
-<div class="flex items-center gap-1 px-1">
-<button class="w-10 h-10 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-tertiary transition-colors">
-<span class="material-symbols-outlined">mic</span>
-</button>
-<button class="w-10 h-10 rounded-xl bg-primary text-on-primary-container flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20">
-<span class="material-symbols-outlined">arrow_forward</span>
-</button>
+<div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-primary text-3xl">play_circle</span>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Interactive Lessons</h4>
+<p class="text-on-surface-variant font-body-md">Don't just read—engage with active content.</p>
 </div>
 </div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-secondary text-3xl">visibility</span>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Visual Learning</h4>
+<p class="text-on-surface-variant font-body-md">Complex concepts simplified via beautiful diagrams.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-tertiary text-3xl">fact_check</span>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Practice Quizzes</h4>
+<p class="text-on-surface-variant font-body-md">Test your retention with smart, adaptive quizzes.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-error text-3xl">style</span>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Flashcards</h4>
+<p class="text-on-surface-variant font-body-md">Anki-style spaced repetition for long-term memory.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-primary-fixed text-3xl">insights</span>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Progress Tracking</h4>
+<p class="text-on-surface-variant font-body-md">Visualize your journey with detailed analytics.</p>
+</div>
+</div>
+<div class="flex gap-6 opacity-60">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">smart_toy</span>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2 flex items-center gap-2">
+                                    AI Tutor <span class="text-[10px] bg-primary/20 text-primary px-2 py-0.5 rounded-full">COMING SOON</span>
+</h4>
+<p class="text-on-surface-variant font-body-md">Your 24/7 personal study companion.</p>
 </div>
 </div>
 </div>
 </div>
+</div>
+</section>
+<!-- Popular Courses Section -->
+<section class="py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+<div class="space-y-2">
+<h2 class="font-headline-lg text-headline-lg">Popular Courses</h2>
+<p class="text-on-surface-variant font-body-lg">Hand-picked curriculum for high-performance students.</p>
+</div>
+<a class="text-primary font-body-md flex items-center gap-2 hover:underline" href="#">
+                    View all 500+ lessons <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Course Card 1 -->
+<div class="glass-panel rounded-2xl overflow-hidden aura-shadow group cursor-pointer border border-white/5">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A macro cinematic shot of a sleek, transparent glass brain glowing with soft purple neural pathways, set against a deep navy, minimalist background in the style of high-end tech branding. The lighting is ethereal and soft, emphasizing clarity and intelligence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnuO5HOWaUjPwLS8St8eS1JhIwA71vQe6EkUxT0pTNRu7StSafLOri66KIR7zZC1uGPquQ_2s2RZE32xVL99zJryrM2S1D8jjxkKKWZHghPQ2lR2iGsvArjKjJWF2oUz3xiHEdjIpLhZUiHn9uUfU5GvhKUilCZH_WbA0AzjfUyPaJX_HpxjG6W-HvSOEbzK3PjxknA5sGEye86DtCRy4dzBOonX4ew5ZWA6Nh-RBAXVnIIgO_UW66DHVxO01w_3oTz621XzgNgw"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary/20 text-primary-fixed px-3 py-1 rounded-full font-label-sm backdrop-blur-md">INTERMEDIATE</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<h3 class="font-headline-md text-headline-md leading-tight">Modern AI &amp; Neural Networks</h3>
+<div class="flex items-center gap-4 text-on-surface-variant font-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 12h 30m</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">person</span> 2.4k</span>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="glass-panel rounded-2xl overflow-hidden aura-shadow group cursor-pointer border border-white/5">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Abstract 3D rendered geometric shapes representing mathematical precision, featuring translucent pyramids and spheres in a calm, monochromatic sky blue palette. Minimalist composition with soft ambient occlusion shadows and premium material finishes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXv6GVmk4PxPnr7o3o-GRq8J5v4rX2HqQRDRySintN4jksFvOl0agomDPvPPb9achtKW4HBq70C8rGhEZj4bh4aYXq6iaHocoRgn5PxEsqNgEDFPels1CySHc-jVaJ1pX4p5fcU5KaH1-An7BBE5RU-kHh3Itxxa_avxKNOjyJ7mIQszDPelN9h_CM_yYjiB7kR_eX3t2hLHrYPTqddQ4d6yV5OxxzKuFvPNv1BZ0_poZHxX3im2nLr9drMvkHmje8UvcJtTJ6EA"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary/20 text-secondary-fixed px-3 py-1 rounded-full font-label-sm backdrop-blur-md">BEGINNER</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<h3 class="font-headline-md text-headline-md leading-tight">Advanced Calculus for Scientists</h3>
+<div class="flex items-center gap-4 text-on-surface-variant font-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 18h 15m</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">person</span> 1.8k</span>
+</div>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="glass-panel rounded-2xl overflow-hidden aura-shadow group cursor-pointer border border-white/5">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A high-contrast, minimalist photograph of a sleek telescope lens reflecting a vibrant night sky. The scene is dominated by deep indigo and silver tones, conveying a sense of exploration and scientific discovery. Soft bokeh lighting in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACiQTaXpxBGwujdP7qEWa337MAivyJlLwS6Khu3-YG4Cf81XrvEIfz1dGxJ0gJwS4mtZyKpLt8kggh9BdogszoilQzWrDNBoLHq7ZXTTJvZrwv8MNGLzogQ-0kJhhPnZU7hotVAx8XOyeAR86a_ZubhMCaXGfLcNTiEynIy2bfwt88DW-XcK7lbOV8bd-LzDU-FR9MX3cS01-s_bNceEm4W_bVxfYCiQtEpHxJTbCMPYI59-xwVaDS8CtYDilR8PkXn9p2VMBAdA"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary/20 text-tertiary-fixed px-3 py-1 rounded-full font-label-sm backdrop-blur-md">ALL LEVELS</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<h3 class="font-headline-md text-headline-md leading-tight">Quantum Mechanics Simplified</h3>
+<div class="flex items-center gap-4 text-on-surface-variant font-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 24h 00m</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">person</span> 950</span>
+</div>
+</div>
+</div>
+<!-- Course Card 4 -->
+<div class="glass-panel rounded-2xl overflow-hidden aura-shadow group cursor-pointer border border-white/5">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Close-up of a digital tablet showing a clean, minimalist code editor with soft syntax highlighting in blue and purple. The surrounding environment is a modern, dimly lit study space with a soft-focus wooden desk and a designer lamp." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1AI1-V-rSqfhvlm8CxyfXfehk9nrssn4OPPybDppTMv8qrfVFpeENwDx6SotFMXglf01_pYCkXALN8NK0ehmyg_-_4rSg-lxGPPL8fwaMGHjExUUQTTMrRg7t8Pzd5NZ1lnzCB_wLhpRvieYGWXV4zwL1U9JqxpUK3WfOBw7c2uLZy2c67sQxnNnBbFJ3gikmNWh71fIA_GCE49TZmTPgjWuGvqAHhsXTbHPMkWE8N0tX0_2gnwE9C84-kkIkByj5GpxAnH07RA"/>
+<div class="absolute top-4 left-4">
+<span class="bg-error/20 text-error px-3 py-1 rounded-full font-label-sm backdrop-blur-md">EXPERT</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<h3 class="font-headline-md text-headline-md leading-tight">Mastering Rust Architecture</h3>
+<div class="flex items-center gap-4 text-on-surface-variant font-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 15h 45m</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">person</span> 3.1k</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Student Stats Section -->
+<section class="py-20 border-y border-white/5 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+<div class="space-y-2">
+<div class="text-[48px] font-bold text-primary tracking-tighter">10K+</div>
+<div class="text-on-surface-variant font-body-md uppercase tracking-widest">Active Students</div>
+</div>
+<div class="space-y-2">
+<div class="text-[48px] font-bold text-secondary tracking-tighter">500+</div>
+<div class="text-on-surface-variant font-body-md uppercase tracking-widest">Premium Lessons</div>
+</div>
+<div class="space-y-2">
+<div class="text-[48px] font-bold text-tertiary tracking-tighter">100+</div>
+<div class="text-on-surface-variant font-body-md uppercase tracking-widest">Specialized Subjects</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline-lg text-headline-lg">Trusted by high achievers</h2>
+<p class="text-on-surface-variant font-body-lg">Join the thousands who have transformed their learning habits.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="glass-panel p-8 rounded-2xl aura-shadow border border-white/5 flex flex-col justify-between">
+<p class="font-body-lg text-on-surface italic leading-relaxed opacity-90">"The visual explanations for physics are the best I've seen. It finally clicked after months of struggling with textbooks."</p>
+<div class="mt-8 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-white/10 flex items-center justify-center text-primary font-bold">SM</div>
+<div>
+<p class="font-body-md font-semibold">Sarah Mitchell</p>
+<p class="text-on-surface-variant font-label-sm">Pre-Med Student</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="glass-panel p-8 rounded-2xl aura-shadow border border-white/5 flex flex-col justify-between scale-105 z-10 bg-surface-container-low">
+<p class="font-body-lg text-on-surface italic leading-relaxed opacity-90">"Aura Study's interface is so clean. It's the only learning platform that doesn't feel like a chore to use."</p>
+<div class="mt-8 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-white/10 flex items-center justify-center text-secondary font-bold">JL</div>
+<div>
+<p class="font-body-md font-semibold">James Liang</p>
+<p class="text-on-surface-variant font-label-sm">Computer Science Major</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="glass-panel p-8 rounded-2xl aura-shadow border border-white/5 flex flex-col justify-between">
+<p class="font-body-lg text-on-surface italic leading-relaxed opacity-90">"The flashcard system integrated directly into the courses is a game-changer for my exam prep."</p>
+<div class="mt-8 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-white/10 flex items-center justify-center text-tertiary font-bold">EK</div>
+<div>
+<p class="font-body-md font-semibold">Elena Kostic</p>
+<p class="text-on-surface-variant font-label-sm">Research Fellow</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg">Frequently Asked Questions</h2>
+</div>
+<div class="space-y-4">
+<!-- FAQ Item -->
+<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-body-lg font-medium">How do the interactive lessons work?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-body-md">
+                            Our interactive lessons combine high-quality video, 3D diagrams you can manipulate, and real-time coding or problem-solving environments to ensure active participation.
+                        </div>
+</details>
+<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-body-lg font-medium">Can I access Aura Study on my mobile device?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-body-md">
+                            Absolutely. Aura Study is fully responsive and offers a native-like experience on iOS and Android browsers, allowing you to study anywhere.
+                        </div>
+</details>
+<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-body-lg font-medium">Are there any prerequisite for the courses?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-body-md">
+                            Prerequisites vary by course. However, most of our subjects start from foundational concepts and build up to advanced mastery.
+                        </div>
+</details>
+<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-body-lg font-medium">What makes Aura Study different from other platforms?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-body-md">
+                            We focus on "Calm Tech"—reducing cognitive load through minimalist design and visual storytelling, making complex academic subjects feel intuitive and accessible.
+                        </div>
+</details>
+<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-body-lg font-medium">When will the AI Tutor be available?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-body-md">
+                            The AI Tutor is currently in beta testing with select students. We plan to roll it out to all premium members by Q4 2026.
+                        </div>
+</details>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto glass-panel rounded-[40px] p-12 md:p-24 text-center space-y-8 relative overflow-hidden aura-shadow border border-white/10">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-secondary/10 pointer-events-none"></div>
+<h2 class="font-headline-lg text-[40px] md:text-[56px] leading-tight font-bold text-on-surface">Ready to transform your mind?</h2>
+<p class="text-on-surface-variant font-body-lg max-w-xl mx-auto">Join a global community of lifelong learners and master the subjects of tomorrow.</p>
+<div class="pt-6">
+<button class="px-12 py-5 rounded-full bg-primary text-on-primary font-body-md text-body-md font-bold hover:scale-105 active:scale-95 transition-all aura-shadow">
+                        Start Your Journey Now
+                    </button>
+</div>
+</div>
+</section>
 </main>
 <!-- Footer -->
-<footer class="md:pl-64 w-full py-stack-lg px-margin-desktop bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-white/5 mt-section-gap">
-<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter">
-<div class="col-span-1 md:col-span-2">
-<span class="font-display-lg-mobile text-[24px] font-black text-on-surface block mb-4">Aura Study</span>
-<p class="text-on-surface-variant text-sm max-w-sm mb-6">Elevate your cognitive flow with AI-integrated deep learning. Designed for the ambitious student.</p>
-<p class="text-on-surface-variant text-xs opacity-50">© 2024 Aura Study. Elevate your cognitive flow.</p>
+<footer class="bg-surface dark:bg-surface-container-lowest w-full py-12 border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-base">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">
+                    Aura Study
+                </div>
+<p class="text-on-surface-variant font-body-md opacity-60">Copyright © 2026 Aura Study</p>
 </div>
-<div>
-<h4 class="font-label-md text-primary mb-4 uppercase tracking-widest text-[10px]">Ecosystem</h4>
-<div class="flex flex-col gap-2">
-<a class="text-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Library</a>
-<a class="text-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Tutoring</a>
-<a class="text-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Research</a>
-</div>
-</div>
-<div>
-<h4 class="font-label-md text-primary mb-4 uppercase tracking-widest text-[10px]">Support</h4>
-<div class="flex flex-col gap-2">
-<a class="text-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
-<a class="text-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
-<a class="text-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
-</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">About</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Terms</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Contact</a>
 </div>
 </div>
 </footer>
 <script>
-        // Micro-interactions and effects
-        document.addEventListener('DOMContentLoaded', () => {
-            const input = document.querySelector('input[type="text"]');
-            const inputContainer = input.closest('.glass-panel');
+        // Simple intersection observer for reveal animations
+        const observerOptions = {
+            threshold: 0.1
+        };
 
-            input.addEventListener('focus', () => {
-                inputContainer.classList.add('shadow-[0_0_32px_rgba(160,120,255,0.1)]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
             });
+        }, observerOptions);
 
-            input.addEventListener('blur', () => {
-                inputContainer.classList.remove('shadow-[0_0_32px_rgba(160,120,255,0.1)]');
-            });
-
-            // Smooth scroll for chat history
-            const chatHistory = document.querySelector('.flex-1.overflow-y-auto');
-            chatHistory.scrollTop = chatHistory.scrollHeight;
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
+            observer.observe(el);
         });
     </script>
 </body></html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login | Aura Study</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#0f0d13",
+                        "on-surface": "#e6e1e8",
+                        "primary-container": "#a78bfa",
+                        "surface-container-low": "#1c1b20",
+                        "primary-fixed-dim": "#cebdff",
+                        "tertiary-container": "#929db3",
+                        "tertiary-fixed-dim": "#bcc7de",
+                        "secondary": "#7bd0ff",
+                        "on-tertiary-fixed": "#111c2d",
+                        "on-error": "#690005",
+                        "primary-fixed": "#e8ddff",
+                        "error-container": "#93000a",
+                        "on-primary-fixed": "#21005e",
+                        "outline": "#948e9d",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#00374d",
+                        "on-primary-fixed-variant": "#4f319c",
+                        "inverse-primary": "#674bb5",
+                        "surface-bright": "#3a383e",
+                        "on-tertiary-container": "#2a3547",
+                        "surface-variant": "#36343a",
+                        "on-tertiary": "#263143",
+                        "primary": "#cebdff",
+                        "on-primary-container": "#3c1989",
+                        "on-primary": "#381385",
+                        "secondary-container": "#00a6e0",
+                        "surface": "#141318",
+                        "surface-tint": "#cebdff",
+                        "on-secondary-fixed": "#001e2c",
+                        "inverse-on-surface": "#312f35",
+                        "on-surface-variant": "#cac4d4",
+                        "on-secondary": "#00354a",
+                        "secondary-fixed": "#c4e7ff",
+                        "background": "#141318",
+                        "on-secondary-fixed-variant": "#004c69",
+                        "surface-container-high": "#2b292f",
+                        "on-tertiary-fixed-variant": "#3c475a",
+                        "surface-container-highest": "#36343a",
+                        "tertiary": "#bcc7de",
+                        "surface-dim": "#141318",
+                        "surface-container": "#201f24",
+                        "on-background": "#e6e1e8",
+                        "outline-variant": "#494552",
+                        "inverse-surface": "#e6e1e8",
+                        "tertiary-fixed": "#d8e3fb",
+                        "secondary-fixed-dim": "#7bd0ff",
+                        "on-error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "container-max": "1200px",
+                        "base": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0B0A0F;
+            color: #e6e1e8;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .aura-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(103, 75, 181, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+        }
+        .input-focus-glow:focus-within {
+            box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.5);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md min-h-screen flex items-center justify-center relative px-margin-mobile md:px-margin-desktop">
+<!-- Decorative Animated Background Elements -->
+<div class="aura-glow top-[-10%] left-[-10%]"></div>
+<div class="aura-glow bottom-[-10%] right-[-10%]"></div>
+<main class="w-full max-w-[480px] z-10">
+<!-- Brand Identity -->
+<div class="text-center mb-10">
+<h1 class="font-headline-lg text-headline-lg font-bold tracking-tight text-on-surface flex items-center justify-center gap-3">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                Aura Study
+            </h1>
+<p class="text-on-surface-variant font-body-md mt-2">Elevate your cognition with focused study tools.</p>
+</div>
+<!-- Login Glass Card -->
+<div class="glass-card rounded-[24px] p-8 md:p-10">
+<div class="mb-8">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Welcome Back</h2>
+<p class="text-on-surface-variant">Sign in to continue your research session.</p>
+</div>
+<!-- Social Sign In -->
+<button class="w-full flex items-center justify-center gap-3 bg-surface-container-high py-3 px-4 rounded-xl border border-white/5 hover:bg-surface-variant transition-colors duration-200 mb-6 group">
+<svg class="text-on-surface" fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+<span class="font-medium">Sign in with Google</span>
+</button>
+<div class="relative flex items-center justify-center mb-6">
+<div class="w-full border-t border-white/10"></div>
+<span class="absolute bg-[#141318]/0 px-4 text-label-sm text-outline uppercase tracking-widest">or email</span>
+<div class="h-4 w-12 bg-surface absolute blur-sm"></div>
+<span class="relative z-10 px-4 text-label-sm text-outline uppercase tracking-widest bg-surface-container-low">or email</span>
+</div>
+<!-- Login Form -->
+<form class="space-y-5" id="loginForm" onsubmit="handleLogin(event)">
+<div class="space-y-1.5">
+<label class="text-label-sm text-on-surface-variant ml-1" for="email">Email Address</label>
+<div class="relative group input-focus-glow rounded-xl transition-all duration-200">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">mail</span>
+<input class="w-full bg-surface-container-low border border-white/5 rounded-xl py-3 pl-12 pr-4 text-on-surface placeholder:text-outline/50 focus:ring-0 focus:border-primary-container transition-all" id="email" placeholder="name@example.com" required="" type="email"/>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between items-center ml-1">
+<label class="text-label-sm text-on-surface-variant" for="password">Password</label>
+<a class="text-label-sm text-primary hover:underline transition-all" href="#">Forgot password?</a>
+</div>
+<div class="relative group input-focus-glow rounded-xl transition-all duration-200">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full bg-surface-container-low border border-white/5 rounded-xl py-3 pl-12 pr-12 text-on-surface placeholder:text-outline/50 focus:ring-0 focus:border-primary-container transition-all" id="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined" id="eyeIcon">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-2 px-1">
+<input class="w-4 h-4 rounded border-white/10 bg-surface-container-low text-primary focus:ring-primary focus:ring-offset-surface" id="remember" type="checkbox"/>
+<label class="text-body-md text-on-surface-variant cursor-pointer select-none" for="remember">Remember this session</label>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container font-medium py-3.5 rounded-xl hover:brightness-110 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2" type="submit">
+                    Start Learning
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</form>
+<div class="mt-8 text-center">
+<p class="text-on-surface-variant">
+                    Don't have an account? 
+                    <a class="text-primary font-medium hover:underline" href="signup.html">Join Aura Study</a>
+</p>
+</div>
+</div>
+<!-- System Status (Mock) -->
+<div class="mt-8 flex justify-center items-center gap-6 text-label-sm text-outline">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                Cloud Sync Active
+            </div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+                End-to-End Encrypted
+            </div>
+</div>
+</main>
+<!-- Success Overlay -->
+<div class="fixed inset-0 bg-surface/90 backdrop-blur-xl z-50 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500" id="successOverlay">
+<div class="relative w-24 h-24 mb-6">
+<div class="absolute inset-0 bg-primary/20 rounded-full animate-ping"></div>
+<div class="relative flex items-center justify-center w-full h-full bg-primary-container rounded-full shadow-[0_0_40px_rgba(167,139,250,0.4)]">
+<span class="material-symbols-outlined text-on-primary-container text-4xl" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Authenticating...</h2>
+<p class="text-on-surface-variant">Syncing your cognitive workspace</p>
+</div>
+<script>
+        function togglePassword() {
+            const pwdInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            if (pwdInput.type === 'password') {
+                pwdInput.type = 'text';
+                eyeIcon.textContent = 'visibility_off';
+            } else {
+                pwdInput.type = 'password';
+                eyeIcon.textContent = 'visibility';
+            }
+        }
+
+        async function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const overlay = document.getElementById('successOverlay');
+
+            // Visual feedback for success
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100');
+
+            // Simulate server-side validation and redirect
+            setTimeout(() => {
+                window.location.href = 'dashboard_aura_study.html';
+            }, 2000);
+        }
+
+        // Add subtle mouse-tracking movement to the background aura
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.querySelector('.aura-glow');
+            const x = (e.clientX / window.innerWidth - 0.5) * 50;
+            const y = (e.clientY / window.innerHeight - 0.5) * 50;
+            glow.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+</body></html>

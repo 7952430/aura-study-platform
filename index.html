@@ -137,8 +137,7 @@
 <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#courses">Courses</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#community">Community</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#">Blog</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#">About</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#">Contact</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium hidden" href="#" id="nav-dashboard">Dashboard</a>
 </div>
 <div class="flex items-center gap-4">
 <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
@@ -150,9 +149,12 @@
 </select>
 <button class="material-symbols-outlined text-lg text-on-surface-variant hover:text-primary">dark_mode</button>
 </div>
-<button class="hidden sm:block bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-sm hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20">
+<div class="flex items-center gap-4" id="auth-buttons">
+<a class="text-on-surface font-bold text-sm hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_39}}" id="login-link">Login</a>
+<button class="hidden sm:block bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-sm hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20" id="cta-start">
                 Start Learning
             </button>
+</div>
 <button class="lg:hidden text-on-surface p-2">
 <span class="material-symbols-outlined text-3xl">menu</span>
 </button>
@@ -846,8 +848,58 @@
 <p class="text-on-surface-variant text-xs font-bold">Made with ❤️ for learners worldwide.</p>
 </div>
 </footer>
+<!-- Firebase Integration Scripts -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
 <script>
-    // WebGL Shader Simulation (Background)
+    // --- Firebase Initialization ---
+    const firebaseConfig = {
+        apiKey: "AIzaSy...your-api-key",
+        authDomain: "aura-study.firebaseapp.com",
+        projectId: "aura-study",
+        storageBucket: "aura-study.appspot.com",
+        messagingSenderId: "123456789",
+        appId: "1:123456789:web:abcdef"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    const auth = firebase.auth();
+
+    // --- UI Update Logic for Auth State ---
+    auth.onAuthStateChanged((user) => {
+        const authButtons = document.getElementById('auth-buttons');
+        const loginLink = document.getElementById('login-link');
+        const ctaStart = document.getElementById('cta-start');
+        const navDashboard = document.getElementById('nav-dashboard');
+
+        if (user) {
+            // User is logged in
+            navDashboard.classList.remove('hidden');
+            
+            authButtons.innerHTML = `
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-3 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+                        <img src="${user.photoURL || 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2SnVzleNVOakIpFQZEPNjQ5BW9qEClQ2P5guS731qKyFd-RkuKdG9lCD3fiLBuNDOTKSz2BJqL_iiABthsvY2I8nQ72WHQ5HVCd0vboZQiChP3EBZRSMTgM-xhKlrN6Qh-tkgYrB9_K30cpgsDLc4jt3dfZ0C5RfIGsldWQCB_-apx9UtPDuZY6TexPWwZQExLg0WEY2-mD9g6Scq6cEml-U41s_FU9X0XsighnAWt4eyKSrqknpw6LJz2KHTbNzUJULHXEmgFQ'}" class="w-6 h-6 rounded-full border border-primary/30" />
+                        <span class="text-xs font-bold text-on-surface hidden sm:block">${user.displayName || 'Learner'}</span>
+                    </div>
+                    <button id="logout-btn" class="text-on-surface-variant hover:text-error transition-colors text-sm font-bold">Logout</button>
+                </div>
+            `;
+            
+            document.getElementById('logout-btn').addEventListener('click', () => {
+                auth.signOut().then(() => {
+                    window.location.reload();
+                });
+            });
+
+        } else {
+            // User is not logged in
+            navDashboard.classList.add('hidden');
+            // Revert to default state if needed, though initial HTML handles this
+        }
+    });
+
+    // --- Background Shader & UI Animation Scripts ---
     (function() {
         const canvas = document.getElementById('shader-canvas');
         const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
@@ -905,14 +957,15 @@
         render(0);
     })();
 
-    // Intersection Observer for Reveal & Counters
     const observerOptions = { threshold: 0.1 };
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('reveal-visible');
                 if (entry.target.classList.contains('counter')) {
-                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    const targetAttr = entry.target.getAttribute('data-target');
+                    if(!targetAttr) return;
+                    const target = parseInt(targetAttr);
                     let count = 0;
                     const duration = 2000;
                     const step = target / (duration / 16);
@@ -933,14 +986,17 @@
 
     document.querySelectorAll('.reveal-hidden, .counter').forEach(el => revealObserver.observe(el));
 
-    // Testimonial Carousel Auto-slide
     const carousel = document.getElementById('testimonial-carousel');
-    let scrollPos = 0;
-    setInterval(() => {
-        const itemWidth = carousel.firstElementChild.offsetWidth + 32;
-        scrollPos += itemWidth;
-        if (scrollPos >= carousel.scrollWidth - window.innerWidth) scrollPos = 0;
-        carousel.style.transform = `translateX(-${scrollPos}px)`;
-    }, 4000);
+    if(carousel) {
+        let scrollPos = 0;
+        setInterval(() => {
+            const firstChild = carousel.firstElementChild;
+            if(!firstChild) return;
+            const itemWidth = firstChild.offsetWidth + 32;
+            scrollPos += itemWidth;
+            if (scrollPos >= carousel.scrollWidth - window.innerWidth) scrollPos = 0;
+            carousel.style.transform = `translateX(-${scrollPos}px)`;
+        }, 4000);
+    }
 </script>
 </body></html>

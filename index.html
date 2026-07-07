@@ -3,9 +3,9 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Aura Study | The Future of Learning</title>
+<title>Aura Study | The Future of AI Learning</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
@@ -13,59 +13,29 @@
         theme: {
           extend: {
             "colors": {
-                    "surface-container-low": "#1c1b20",
-                    "surface-variant": "#36343a",
-                    "secondary-container": "#00a6e0",
-                    "background": "#141318",
-                    "surface-bright": "#3a383e",
-                    "on-surface": "#e6e1e8",
-                    "surface-container": "#201f24",
-                    "error": "#ffb4ab",
-                    "on-primary-container": "#3c1989",
-                    "on-error-container": "#ffdad6",
-                    "on-secondary": "#00354a",
-                    "on-primary-fixed": "#21005e",
-                    "surface-container-high": "#2b292f",
-                    "surface-tint": "#cebdff",
-                    "primary-fixed": "#e8ddff",
-                    "error-container": "#93000a",
-                    "on-surface-variant": "#cac4d4",
-                    "tertiary-fixed-dim": "#bcc7de",
-                    "inverse-on-surface": "#312f35",
-                    "on-error": "#690005",
-                    "surface": "#141318",
-                    "tertiary": "#bcc7de",
-                    "on-tertiary-fixed-variant": "#3c475a",
-                    "on-secondary-container": "#00374d",
-                    "primary-fixed-dim": "#cebdff",
-                    "outline": "#948e9d",
-                    "inverse-surface": "#e6e1e8",
-                    "tertiary-container": "#929db3",
-                    "secondary-fixed-dim": "#7bd0ff",
-                    "on-background": "#e6e1e8",
-                    "on-tertiary": "#263143",
-                    "primary-container": "#a78bfa",
-                    "outline-variant": "#494552",
-                    "on-secondary-fixed-variant": "#004c69",
-                    "on-tertiary-fixed": "#111c2d",
-                    "on-primary": "#381385",
-                    "on-tertiary-container": "#2a3547",
-                    "secondary": "#7bd0ff",
                     "primary": "#cebdff",
-                    "surface-container-highest": "#36343a",
-                    "surface-container-lowest": "#0f0d13",
-                    "on-secondary-fixed": "#001e2c",
-                    "surface-dim": "#141318",
-                    "on-primary-fixed-variant": "#4f319c",
-                    "tertiary-fixed": "#d8e3fb",
-                    "inverse-primary": "#674bb5",
-                    "secondary-fixed": "#c4e7ff"
+                    "on-primary": "#381385",
+                    "primary-container": "#a78bfa",
+                    "on-primary-container": "#3c1989",
+                    "secondary": "#7bd0ff",
+                    "on-secondary": "#00354a",
+                    "secondary-container": "#00a6e0",
+                    "on-secondary-container": "#00374d",
+                    "tertiary": "#bcc7de",
+                    "background": "#0B0A0F",
+                    "surface": "#141318",
+                    "surface-container": "#201f24",
+                    "on-surface": "#e6e1e8",
+                    "on-surface-variant": "#cac4d4",
+                    "outline": "#948e9d",
+                    "error": "#ffb4ab"
             },
             "borderRadius": {
                     "DEFAULT": "0.25rem",
                     "lg": "0.5rem",
                     "xl": "0.75rem",
                     "2xl": "24px",
+                    "3xl": "32px",
                     "full": "9999px"
             },
             "spacing": {
@@ -74,25 +44,9 @@
                     "gutter": "24px",
                     "margin-mobile": "16px",
                     "margin-desktop": "40px"
-            },
-            "fontFamily": {
-                    "body-lg": ["Inter"],
-                    "headline-lg-mobile": ["Inter"],
-                    "headline-lg": ["Inter"],
-                    "label-sm": ["Inter"],
-                    "body-md": ["Inter"],
-                    "headline-md": ["Inter"]
-            },
-            "fontSize": {
-                    "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
-                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
-                    "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
-                    "body-md": ["14px", {"lineHeight": "1.5", "letterSpacing": "0.01em", "fontWeight": "400"}],
-                    "headline-md": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "500"}]
             }
-          },
-        },
+          }
+        }
       }
     </script>
 <style>
@@ -107,8 +61,16 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(16px);
         }
-        .aura-shadow {
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(206, 189, 255, 0.3);
+            transform: translateY(-8px);
         }
         .text-gradient {
             background: linear-gradient(135deg, #cebdff 0%, #7bd0ff 100%);
@@ -121,14 +83,6 @@
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(2deg); }
-        }
-        .particle {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0.3;
-            filter: blur(1px);
         }
         .reveal-hidden {
             opacity: 0;
@@ -143,29 +97,60 @@
             display: flex;
             transition: transform 0.5s ease-in-out;
         }
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, #cebdff 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            animation: particle-glow 4s ease-in-out infinite;
+        }
+        @keyframes particle-glow {
+            0%, 100% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 0.3; }
+        }
+        #shader-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.6;
+        }
     </style>
 </head>
-<body class="bg-background text-on-background overflow-x-hidden">
+<body class="overflow-x-hidden">
+<canvas id="shader-canvas"></canvas>
 <!-- Header -->
-<nav class="fixed top-0 w-full z-[100] bg-surface/40 backdrop-blur-xl border-b border-white/10">
-<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
-<div class="flex items-center gap-2">
-<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center">
-<span class="material-symbols-outlined text-on-primary-container text-xl">auto_awesome</span>
+<nav class="fixed top-0 w-full z-[100] bg-surface/30 backdrop-blur-2xl border-b border-white/5">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-center gap-2 group cursor-pointer">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center group-hover:rotate-12 transition-transform">
+<span class="material-symbols-outlined text-on-primary-container text-2xl">auto_awesome</span>
 </div>
-<div class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface">
-                Aura Study
-            </div>
+<div class="font-bold text-2xl tracking-tighter text-on-surface">Aura Study</div>
 </div>
-<div class="hidden lg:flex items-center gap-10">
-<a class="text-primary font-semibold relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary" href="#">Home</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-medium" href="#">Subjects</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-medium" href="#">Courses</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-medium" href="#">Community</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-medium" href="#">About</a>
+<div class="hidden lg:flex items-center gap-8">
+<a class="text-primary font-bold text-sm" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#subjects">Subjects</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#courses">Courses</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#community">Community</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#">Blog</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#">Contact</a>
 </div>
 <div class="flex items-center gap-4">
-<button class="bg-primary text-on-primary px-8 py-2.5 rounded-full font-body-md text-body-md font-bold active:scale-95 transition-all aura-shadow hover:brightness-110">
+<div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+<select class="bg-transparent border-none text-[10px] font-bold text-on-surface-variant focus:ring-0 p-0 cursor-pointer">
+<option>EN</option>
+<option>UR</option>
+<option>HI</option>
+<option>AR</option>
+</select>
+<button class="material-symbols-outlined text-lg text-on-surface-variant hover:text-primary">dark_mode</button>
+</div>
+<button class="hidden sm:block bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-sm hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20">
                 Start Learning
             </button>
 <button class="lg:hidden text-on-surface p-2">
@@ -176,490 +161,753 @@
 </nav>
 <main>
 <!-- Hero Section -->
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 px-margin-mobile md:px-margin-desktop">
-<div class="absolute inset-0 z-0">
-<canvas class="w-full h-full" id="webgl-canvas"></canvas>
-<div class="absolute inset-0 bg-gradient-to-b from-background/0 via-background/20 to-background"></div>
-</div>
-<div class="absolute inset-0 pointer-events-none z-[1]" id="particles-container"></div>
-<div class="relative z-10 max-w-container-max w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-<div class="space-y-8 text-left reveal-hidden">
+<section class="relative min-h-screen flex items-center pt-24 pb-20 px-margin-mobile md:px-margin-desktop overflow-hidden">
+<div class="max-w-container-max w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-10 reveal-hidden relative z-10">
 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-primary/20">
 <span class="flex text-yellow-400 text-sm">★★★★★</span>
-<span class="text-primary-fixed font-label-sm uppercase tracking-widest">Rated by Students Worldwide</span>
+<span class="text-primary font-bold text-xs uppercase tracking-widest">Trusted by 50K+ Learners</span>
 </div>
-<h1 class="font-headline-lg text-[44px] md:text-[80px] leading-[1] font-bold tracking-tight text-on-surface">
-                    The Future of <span class="text-gradient">Learning</span> Starts Here.
-                </h1>
-<p class="font-body-lg text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed">
-                    Master any subject with interactive lessons, visual explanations, and AI-powered learning tailored to your unique cognitive style.
+<h1 class="text-5xl md:text-[84px] leading-[1.05] font-black tracking-tight text-on-surface">
+                    The Future of Learning <span class="text-gradient">Starts Here.</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-xl leading-relaxed font-medium">
+                    Master any subject with interactive lessons, visual explanations, quizzes and AI-powered learning.
                 </p>
-<div class="flex flex-col sm:flex-row items-center gap-5 pt-4">
-<button class="w-full sm:w-auto px-12 py-5 rounded-full bg-primary text-on-primary font-body-md text-body-md font-bold hover:scale-105 active:scale-95 transition-all aura-shadow shadow-primary/20">
-                        Get Started Free
+<div class="flex flex-wrap gap-5 items-center">
+<button class="px-10 py-5 rounded-full bg-primary text-on-primary font-bold text-lg hover:scale-105 transition-all shadow-xl shadow-primary/20">
+                        Start Learning
                     </button>
-<button class="w-full sm:w-auto px-12 py-5 rounded-full glass-panel text-on-surface font-body-md text-body-md font-semibold hover:bg-white/10 transition-all border border-white/20">
-                        View Curriculum
+<button class="px-10 py-5 rounded-full glass-panel text-on-surface font-bold text-lg hover:bg-white/10 transition-all border border-white/20">
+                        Explore Courses
                     </button>
+<button class="flex items-center gap-2 px-6 py-5 text-on-surface hover:text-primary transition-all group">
+<span class="material-symbols-outlined group-hover:scale-125 transition-transform">play_circle</span>
+<span class="font-bold">Watch Demo</span>
+</button>
 </div>
 </div>
-<div class="hidden lg:flex justify-center items-center reveal-hidden" style="transition-delay: 200ms">
-<div class="relative w-full max-w-lg animate-float">
-<div class="absolute inset-0 bg-primary/20 blur-[100px] rounded-full"></div>
-<img alt="3D Learning Asset" class="relative z-10 w-full drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnuO5HOWaUjPwLS8St8eS1JhIwA71vQe6EkUxT0pTNRu7StSafLOri66KIR7zZC1uGPquQ_2s2RZE32xVL99zJryrM2S1D8jjxkKKWZHghPQ2lR2iGsvArjKjJWF2oUz3xiHEdjIpLhZUiHn9uUfU5GvhKUilCZH_WbA0AzjfUyPaJX_HpxjG6W-HvSOEbzK3PjxknA5sGEye86DtCRy4dzBOonX4ew5ZWA6Nh-RBAXVnIIgO_UW66DHVxO01w_3oTz621XzgNgw"/>
+<div class="relative flex justify-center items-center reveal-hidden" style="transition-delay: 200ms">
+<!-- Particle Background for Hero -->
+<div class="absolute inset-0 z-0 pointer-events-none">
+<div class="particle w-32 h-32 top-1/4 left-1/4" style="animation-delay: 0s;"></div>
+<div class="particle w-24 h-24 bottom-1/4 right-1/4" style="animation-delay: 1s;"></div>
+<div class="particle w-16 h-16 top-1/2 right-1/3" style="animation-delay: 2s;"></div>
+</div>
+<div class="relative w-full max-w-2xl animate-float z-10">
+<div class="absolute inset-0 bg-primary/20 blur-[120px] rounded-full scale-150"></div>
+<img alt="Aura Study Laptop Visualization" class="relative z-10 w-full drop-shadow-[0_35px_35px_rgba(206,189,255,0.3)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb1GOPsggrxKak6pvTHK05YYUBjJm81dPM65MflRC9QzQ0BSfbigd-_YRAJ2btS0DMilnKcXMKwFcUx240tqYiFN0zOhZ5P8BTx_TQkfWxfB4Slo1FyBCbU3BT4tMr23TtFo608AbNij8E4vDQAHGEAgf5zZjjv07so-iTcmUEYmWVA3y_4CKE-qsFC_nsuXyWIYLzogkFCIQRC8TfaJQvDTYepj1Vbdp3US21PWNaG2gNutwzH6ayf9VibSmKkRoH135lJnQ8KA"/>
 </div>
 </div>
 </div>
 </section>
 <!-- Search Section -->
-<section class="py-20 relative z-20 -mt-20 px-margin-mobile">
-<div class="max-w-4xl mx-auto space-y-10 reveal-hidden">
-<div class="text-center space-y-4">
-<h2 class="font-headline-lg text-headline-lg md:text-4xl">What do you want to learn today?</h2>
-</div>
+<section class="pb-24 px-margin-mobile">
+<div class="max-w-4xl mx-auto space-y-8 reveal-hidden">
 <div class="relative group">
-<div class="absolute -inset-1 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-<div class="relative flex items-center glass-panel rounded-2xl p-2 border-white/20">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+<div class="relative flex items-center glass-panel rounded-3xl p-3 border-white/20">
 <span class="material-symbols-outlined ml-6 text-on-surface-variant">search</span>
-<input class="w-full bg-transparent border-none focus:ring-0 px-6 py-4 text-lg placeholder-on-surface-variant/50" placeholder="Search for courses, subjects, or concepts..." type="text"/>
-<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-xl font-bold mr-2 hover:brightness-110 transition-all">Search</button>
+<input class="w-full bg-transparent border-none focus:ring-0 px-6 py-5 text-xl placeholder-on-surface-variant/40" placeholder="What would you like to master today?" type="text"/>
+<button class="bg-primary text-on-primary px-10 py-4 rounded-2xl font-bold hover:brightness-110 transition-all shadow-lg">Search</button>
 </div>
+</div>
+<div class="flex flex-wrap justify-center gap-3">
+<span class="text-on-surface-variant text-sm font-medium mr-2">Popular:</span>
+<button class="px-4 py-1.5 rounded-full glass-panel text-xs font-bold hover:border-primary/50 transition-all">AI</button>
+<button class="px-4 py-1.5 rounded-full glass-panel text-xs font-bold hover:border-primary/50 transition-all">Programming</button>
+<button class="px-4 py-1.5 rounded-full glass-panel text-xs font-bold hover:border-primary/50 transition-all">Math</button>
+<button class="px-4 py-1.5 rounded-full glass-panel text-xs font-bold hover:border-primary/50 transition-all">Physics</button>
+<button class="px-4 py-1.5 rounded-full glass-panel text-xs font-bold hover:border-primary/50 transition-all">Biology</button>
+<button class="px-4 py-1.5 rounded-full glass-panel text-xs font-bold hover:border-primary/50 transition-all">English</button>
 </div>
 </div>
 </section>
-<!-- Subject Cards Section -->
-<section class="py-32 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="flex justify-between items-end mb-16 reveal-hidden">
-<div class="space-y-2">
-<h2 class="font-headline-lg text-headline-lg md:text-4xl font-bold">Explore by Subject</h2>
-<p class="text-on-surface-variant text-body-lg">Dive deep into our structured learning paths.</p>
+<!-- Featured In -->
+<section class="py-12 border-y border-white/5 bg-white/[0.02]">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-wrap justify-center md:justify-between items-center gap-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+<span class="text-xl font-black italic tracking-tighter">FORBES</span>
+<span class="text-xl font-bold tracking-tighter">TechCrunch</span>
+<span class="text-xl font-extrabold">PRODUCT HUNT</span>
+<span class="text-xl font-bold">GitHub</span>
+<span class="text-xl font-black">Microsoft</span>
+<span class="text-xl font-bold">Google</span>
 </div>
-<a class="text-primary font-bold flex items-center gap-2 hover:gap-3 transition-all group" href="#">
-                Browse All <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</section>
+<!-- Subjects Section -->
+<section class="py-32 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop" id="subjects">
+<div class="flex justify-between items-end mb-16 reveal-hidden">
+<div class="space-y-4">
+<h2 class="text-4xl md:text-5xl font-black">Explore <span class="text-gradient">Categories</span></h2>
+<p class="text-on-surface-variant text-lg font-medium">Deep dive into structured learning paths curated by experts.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 group" href="#">
+                Browse All <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_forward</span>
 </a>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
-<div class="glass-panel p-8 rounded-2xl flex flex-col items-start gap-6 hover:-translate-y-2 transition-all duration-300 cursor-pointer group hover:border-primary/40 reveal-hidden">
-<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-500">
-<span class="material-symbols-outlined text-3xl">psychology</span>
+<!-- Card 1 -->
+<div class="glass-card p-10 rounded-3xl flex flex-col items-start gap-8 group reveal-hidden">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-500">
+<span class="material-symbols-outlined text-4xl">psychology</span>
 </div>
 <div>
-<h3 class="font-headline-md text-headline-md font-bold mb-2">Artificial Intelligence</h3>
-<p class="text-on-surface-variant text-body-md leading-relaxed mb-4">Master machine learning and neural networks.</p>
+<h3 class="text-2xl font-bold mb-3">AI &amp; Robotics</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">From Neural Networks to advanced robotic automation.</p>
+<div class="flex items-center gap-4 text-xs font-bold text-primary/80 mb-6">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">menu_book</span> 42 Courses</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">groups</span> 12k Students</span>
+</div>
+<button class="w-full py-3 rounded-xl border border-white/10 group-hover:bg-primary group-hover:text-on-primary font-bold text-sm transition-all">Start Learning</button>
 </div>
 </div>
-<div class="glass-panel p-8 rounded-2xl flex flex-col items-start gap-6 hover:-translate-y-2 transition-all duration-300 cursor-pointer group hover:border-secondary/40 reveal-hidden">
-<div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all duration-500">
-<span class="material-symbols-outlined text-3xl">code</span>
-</div>
-<div>
-<h3 class="font-headline-md text-headline-md font-bold mb-2">Programming</h3>
-<p class="text-on-surface-variant text-body-md leading-relaxed mb-4">From Python basics to complex systems architecture.</p>
-</div>
-</div>
-<div class="glass-panel p-8 rounded-2xl flex flex-col items-start gap-6 hover:-translate-y-2 transition-all duration-300 cursor-pointer group hover:border-tertiary/40 reveal-hidden">
-<div class="w-14 h-14 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary group-hover:bg-tertiary group-hover:text-on-tertiary transition-all duration-500">
-<span class="material-symbols-outlined text-3xl">functions</span>
+<!-- Card 2 -->
+<div class="glass-card p-10 rounded-3xl flex flex-col items-start gap-8 group reveal-hidden" style="transition-delay: 100ms">
+<div class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all duration-500">
+<span class="material-symbols-outlined text-4xl">code</span>
 </div>
 <div>
-<h3 class="font-headline-md text-headline-md font-bold mb-2">Mathematics</h3>
-<p class="text-on-surface-variant text-body-md leading-relaxed mb-4">Deep dive into calculus and discrete math.</p>
+<h3 class="text-2xl font-bold mb-3">Programming</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Master Python, Rust, and modern system architectures.</p>
+<div class="flex items-center gap-4 text-xs font-bold text-secondary/80 mb-6">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">menu_book</span> 128 Courses</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">groups</span> 28k Students</span>
+</div>
+<button class="w-full py-3 rounded-xl border border-white/10 group-hover:bg-secondary group-hover:text-on-secondary font-bold text-sm transition-all">Start Learning</button>
 </div>
 </div>
-<div class="glass-panel p-8 rounded-2xl flex flex-col items-start gap-6 hover:-translate-y-2 transition-all duration-300 cursor-pointer group hover:border-error/40 reveal-hidden">
-<div class="w-14 h-14 rounded-2xl bg-error/10 flex items-center justify-center text-error group-hover:bg-error group-hover:text-on-error transition-all duration-500">
-<span class="material-symbols-outlined text-3xl">science</span>
+<!-- Card 3 -->
+<div class="glass-card p-10 rounded-3xl flex flex-col items-start gap-8 group reveal-hidden" style="transition-delay: 200ms">
+<div class="w-16 h-16 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary group-hover:bg-tertiary group-hover:text-on-tertiary transition-all duration-500">
+<span class="material-symbols-outlined text-4xl">functions</span>
 </div>
 <div>
-<h3 class="font-headline-md text-headline-md font-bold mb-2">Physics</h3>
-<p class="text-on-surface-variant text-body-md leading-relaxed mb-4">Quantum mechanics and thermodynamics explained.</p>
+<h3 class="text-2xl font-bold mb-3">Mathematics</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Calculus, Linear Algebra, and Discrete structures.</p>
+<div class="flex items-center gap-4 text-xs font-bold text-tertiary/80 mb-6">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">menu_book</span> 35 Courses</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">groups</span> 8k Students</span>
+</div>
+<button class="w-full py-3 rounded-xl border border-white/10 group-hover:bg-tertiary group-hover:text-on-tertiary font-bold text-sm transition-all">Start Learning</button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-card p-10 rounded-3xl flex flex-col items-start gap-8 group reveal-hidden" style="transition-delay: 300ms">
+<div class="w-16 h-16 rounded-2xl bg-error/10 flex items-center justify-center text-error group-hover:bg-error group-hover:text-on-error transition-all duration-500">
+<span class="material-symbols-outlined text-4xl">science</span>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-3">Physics</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Quantum mechanics and theoretical astrophysics.</p>
+<div class="flex items-center gap-4 text-xs font-bold text-error/80 mb-6">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">menu_book</span> 29 Courses</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">groups</span> 6k Students</span>
+</div>
+<button class="w-full py-3 rounded-xl border border-white/10 group-hover:bg-error group-hover:text-on-error font-bold text-sm transition-all">Start Learning</button>
 </div>
 </div>
 </div>
 </section>
-<!-- Student Success Section -->
-<section class="py-32 bg-surface-container-lowest/50 relative overflow-hidden">
-<div class="absolute inset-0 bg-primary/5 blur-[120px] rounded-full translate-y-1/2"></div>
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 text-center">
-<h2 class="font-headline-lg text-4xl md:text-5xl font-bold mb-20 reveal-hidden">Trusted by Learners Worldwide</h2>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-<div class="space-y-4 reveal-hidden">
-<div class="text-[56px] md:text-[72px] font-black text-primary tracking-tighter counter" data-target="50000">0</div>
-<div class="text-on-surface-variant font-bold uppercase tracking-[0.2em] text-sm">Students</div>
+<!-- Features Grid -->
+<section class="py-32 bg-surface-container/30 backdrop-blur-md">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center mb-20 reveal-hidden">
+<h2 class="text-4xl md:text-6xl font-black mb-6">A <span class="text-gradient">Complete</span> Ecosystem</h2>
+<p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Everything you need to go from zero to world-class professional.</p>
 </div>
-<div class="space-y-4 reveal-hidden">
-<div class="text-[56px] md:text-[72px] font-black text-secondary tracking-tighter counter" data-target="1500">0</div>
-<div class="text-on-surface-variant font-bold uppercase tracking-[0.2em] text-sm">Lessons</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="glass-card p-8 rounded-3xl space-y-4 reveal-hidden">
+<span class="material-symbols-outlined text-primary text-4xl">dynamic_feed</span>
+<h4 class="font-bold text-xl">Interactive Learning</h4>
+<p class="text-on-surface-variant text-sm">Real-time playgrounds for coding and simulations.</p>
 </div>
-<div class="space-y-4 reveal-hidden">
-<div class="text-[56px] md:text-[72px] font-black text-tertiary tracking-tighter counter" data-target="120">0</div>
-<div class="text-on-surface-variant font-bold uppercase tracking-[0.2em] text-sm">Countries</div>
+<div class="glass-card p-8 rounded-3xl space-y-4 reveal-hidden">
+<span class="material-symbols-outlined text-secondary text-4xl">visibility</span>
+<h4 class="font-bold text-xl">Visual Learning</h4>
+<p class="text-on-surface-variant text-sm">3D models and animated maps for complex concepts.</p>
 </div>
-<div class="space-y-4 reveal-hidden">
-<div class="text-[56px] md:text-[72px] font-black text-error tracking-tighter counter" data-target="95">0</div>
-<div class="text-on-surface-variant font-bold uppercase tracking-[0.2em] text-sm">Success Rate %</div>
+<div class="glass-card p-8 rounded-3xl space-y-4 reveal-hidden">
+<span class="material-symbols-outlined text-tertiary text-4xl">quiz</span>
+<h4 class="font-bold text-xl">Smart Quizzes</h4>
+<p class="text-on-surface-variant text-sm">AI adapts difficulty based on your performance.</p>
+</div>
+<div class="glass-card p-8 rounded-3xl space-y-4 reveal-hidden">
+<span class="material-symbols-outlined text-error text-4xl">style</span>
+<h4 class="font-bold text-xl">Flashcards</h4>
+<p class="text-on-surface-variant text-sm">Spaced repetition for long-term memory retention.</p>
+</div>
+<div class="glass-card p-8 rounded-3xl space-y-4 reveal-hidden">
+<span class="material-symbols-outlined text-primary text-4xl">smart_toy</span>
+<h4 class="font-bold text-xl">AI Tutor</h4>
+<p class="text-on-surface-variant text-sm">24/7 personal coach to answer any query instantly.</p>
+</div>
+<div class="glass-card p-8 rounded-3xl space-y-4 reveal-hidden">
+<span class="material-symbols-outlined text-secondary text-4xl">monitoring</span>
+<h4 class="font-bold text-xl">Progress Tracking</h4>
+<p class="text-on-surface-variant text-sm">Detailed analytics on your learning curve.</p>
+</div>
+<div class="glass-card p-8 rounded-3xl space-y-4 reveal-hidden">
+<span class="material-symbols-outlined text-tertiary text-4xl">dashboard_customize</span>
+<h4 class="font-bold text-xl">Personal Dashboard</h4>
+<p class="text-on-surface-variant text-sm">A centralized hub for your courses and stats.</p>
+</div>
+<div class="glass-card p-8 rounded-3xl space-y-4 reveal-hidden">
+<span class="material-symbols-outlined text-error text-4xl">workspace_premium</span>
+<h4 class="font-bold text-xl">Certificates</h4>
+<p class="text-on-surface-variant text-sm">Verifiable credentials for your resume.</p>
+</div>
+</div>
+</section>
+<!-- Trending Courses -->
+<section class="py-32 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop" id="courses">
+<div class="flex justify-between items-end mb-16 reveal-hidden">
+<h2 class="text-4xl md:text-5xl font-black">Trending <span class="text-gradient">Courses</span></h2>
+<button class="px-6 py-2 rounded-full glass-panel border-white/10 text-sm font-bold">View Curriculum</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Course Card 1 -->
+<div class="glass-card rounded-[32px] overflow-hidden flex flex-col group reveal-hidden">
+<div class="relative h-56 overflow-hidden">
+<img alt="Course Image" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH0i26DSo1ZymaCo0VzhbqJKL5gYK3JJdhdG7B0LYMTK4fbt-q4Z_JmXiBvMQ2BoMY9BAzNdv8QhfmKKAavAlSFnS_krf0-Gd9hnts4OpjxBcIYKoEq0X2u4eUrIr79iI7UQe8Lr2b-ARlLv83VaTTckk3w36qdpnzxXvTz6NLeRvSAxFa1u0lLV1d63lYBzahaVrFgm5Hgq0Dh9WJaVaqKcpDktwF2WVVQN4sZsgMCkOqHcskpWXi6Od5bx3ejv0tVsPxlsSpWA"/>
+<div class="absolute top-4 left-4 px-3 py-1 bg-primary text-on-primary rounded-full text-[10px] font-black uppercase tracking-wider">Bestseller</div>
+</div>
+<div class="p-8 flex-1 flex flex-col">
+<h4 class="text-2xl font-bold mb-4">Prompt Engineering Masterclass</h4>
+<div class="flex items-center gap-2 mb-6">
+<img alt="Instructor" class="w-6 h-6 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUn-piBAh7xf8L4UPtyLQVba28a3h78OunuxjNgfI26-9mKKYEwHSArGMRbs6nJnslMQPWyqDtudd82rpcodqlrCtgArDsb6Kas1WuHBMQDNTeOtmmS5ceMkhpNJONsLFcOgcdwlLUjM7ZOT0GaP7OtM-EwyLdOPbASC55oqk_2nylDoj7taz4hOpw-k1EadQRlCI9B_8ZvPhveA_T70IhJRfd51D6_yQxGo_a0EB3aG6IFHkeI01Gk1Eu2yQYMfUHMNGEGJ0YSQ"/>
+<span class="text-sm text-on-surface-variant">by <span class="text-on-surface font-bold">Dr. Elena Ross</span></span>
+</div>
+<div class="flex justify-between items-center mb-8 border-t border-white/5 pt-6">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="text-sm font-bold">4.9 (2k)</span>
+</div>
+<div class="text-sm font-bold text-on-surface-variant">15k Students</div>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-2xl font-black">$49.00</span>
+<button class="bg-white text-black px-8 py-3 rounded-2xl font-bold hover:bg-primary hover:text-on-primary transition-all">Enroll Now</button>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="glass-card rounded-[32px] overflow-hidden flex flex-col group reveal-hidden" style="transition-delay: 100ms">
+<div class="relative h-56 overflow-hidden">
+<img alt="Course Image" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_UmvBHmADnlaVMmJNA815mo8F3mKRvB6lIdKpEovx4SCllqUUNHsyi1Q_tntTG5lwavdNcFL7t_wMKnkDBGuhAte1-yitd3HhbUZ37d3YGQ9Kldw1fNtcZkE-31UzkYb9se8tNZnvO9d5D21HHOhuTEv3FL8UbAMSKd7YidmIk0TBgNNugkdZZGbtq3xzlJb5of9ReMKulgjvigm44b4WKVk3czBBhW-OWvtEVmIy8F9CWtAF8W9aiZ4GdyX8cRVzLX-z2zYeUA"/>
+<div class="absolute top-4 left-4 px-3 py-1 bg-secondary text-on-secondary rounded-full text-[10px] font-black uppercase tracking-wider">New</div>
+</div>
+<div class="p-8 flex-1 flex flex-col">
+<h4 class="text-2xl font-bold mb-4">Cybersecurity with AI Agents</h4>
+<div class="flex items-center gap-2 mb-6">
+<img alt="Instructor" class="w-6 h-6 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWUBFkjeUbjRayZh8IkcUJrnmR2nAi4kr3SmgBnR2zMykHlRLAM8Z5vdd_wzK4inatFFBEoSB03Dmbfkwtjedtu-vdpHNpPe9-sPEhhnEIb4-5ZpZoNJCOv1fmVYu6D9F_qjPYLSlVuKzzAPXs9t7U8mb6GJ12l3f1MiEKdaZ7OwPNrbUNSlkDspqYuqE-xQFr-GNPgphOzVxcZ9ItAGoz94swxIenpbcckhEK1ejWOOOZTPVdwuiZ1YTGGmtJxcJa1tgxL5N1MQ"/>
+<span class="text-sm text-on-surface-variant">by <span class="text-on-surface font-bold">Marcus Chen</span></span>
+</div>
+<div class="flex justify-between items-center mb-8 border-t border-white/5 pt-6">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="text-sm font-bold">4.8 (850)</span>
+</div>
+<div class="text-sm font-bold text-on-surface-variant">4k Students</div>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-2xl font-black">$59.00</span>
+<button class="bg-white text-black px-8 py-3 rounded-2xl font-bold hover:bg-secondary hover:text-on-secondary transition-all">Enroll Now</button>
+</div>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="glass-card rounded-[32px] overflow-hidden flex flex-col group reveal-hidden" style="transition-delay: 200ms">
+<div class="relative h-56 overflow-hidden">
+<img alt="Course Image" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxKFpKjNkMk8t9h2kapv3_MJVYnWEHEHTPIZZEPtWweeZdxFJGUgSO1CRF-1fbxctQ1d2ttAXyxoE0scyDdAHEm-e10t-BsjrpxBQY5FwDGnW6qCJsnHVjGS17Z0m-5CTFuRvsE9ydA6uYxsX8hEER4LRHjX_4u02oIGqx58vSVaY_Yi-gRegP4T0DM_MNcSSnja06e19ftKXf0Xop4EliuLSf6U40MZd3JbXRmK_5D8X9i_q_CSWpxWUO-4LJJSchwPRfWboqMQ"/>
+</div>
+<div class="p-8 flex-1 flex flex-col">
+<h4 class="text-2xl font-bold mb-4">Quantum Computing Basics</h4>
+<div class="flex items-center gap-2 mb-6">
+<img alt="Instructor" class="w-6 h-6 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8Wz-FTNGaXRhcwCUWMhyBvkV0HsvPkzkBQ2Z3oCvfLrYcL5FEuc8ipCBTYSAvdhF1eA1-mXBwOhUN8w2cQ7Xx_bHmFLZdeMC71AtfeFsECjan5dYdQX2fV_UdNHM2LHjopzYG914byaChZxUr5XUepF9F3Iy7Gslbmr-J1rP26JCtMp7Tx52VquU-knkrORu_hopubIfaO1iNEpPG9QaEC8nVgzVXIPvf49C6mp7RLPXse-TBisqR3-ZPUFC9hDxFvVAEBRpB2g"/>
+<span class="text-sm text-on-surface-variant">by <span class="text-on-surface font-bold">Sarah Mitchell</span></span>
+</div>
+<div class="flex justify-between items-center mb-8 border-t border-white/5 pt-6">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="text-sm font-bold">5.0 (420)</span>
+</div>
+<div class="text-sm font-bold text-on-surface-variant">2k Students</div>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-2xl font-black">$65.00</span>
+<button class="bg-white text-black px-8 py-3 rounded-2xl font-bold hover:bg-primary hover:text-on-primary transition-all">Enroll Now</button>
+</div>
 </div>
 </div>
 </div>
 </section>
-<!-- Learning Roadmap Section -->
-<section class="py-32 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="text-center mb-20 space-y-4 reveal-hidden">
-<h2 class="font-headline-lg text-4xl md:text-5xl font-bold">Your Learning Roadmap</h2>
-<p class="text-on-surface-variant text-lg">A structured path from curiosity to mastery.</p>
+<!-- Live Classes -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop bg-primary/5">
+<div class="max-w-container-max mx-auto reveal-hidden">
+<div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
+<div class="text-center md:text-left">
+<h2 class="text-4xl md:text-5xl font-black mb-4">Live <span class="text-red-400">Classroom</span></h2>
+<p class="text-on-surface-variant text-lg">Join global experts in real-time interactive sessions.</p>
 </div>
+<div class="flex gap-4">
+<button class="p-3 rounded-full glass-panel border-white/10 hover:bg-white/10"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-3 rounded-full glass-panel border-white/10 hover:bg-white/10"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Live Class Item -->
+<div class="glass-panel p-6 rounded-3xl border-primary/20 space-y-6">
 <div class="relative">
-<div class="absolute top-1/2 left-0 w-full h-0.5 bg-white/5 -translate-y-1/2 hidden lg:block"></div>
-<div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-8 relative z-10">
-<div class="flex flex-col items-center text-center space-y-6 reveal-hidden">
-<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center text-primary aura-shadow border-primary/20">
-<span class="material-symbols-outlined text-3xl">category</span>
+<img alt="Teacher" class="w-full aspect-square rounded-2xl object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVaJP4YhnBqrgbzOPJ-3K_FF-08hQXBOwCWFXzFm-t8kUTfO-qbAEFJe39W8MV64dYGMH-cJY2LUvAu5_Kf3Ut5Fl3HNT-aoK-b_qzL2NTFbITKIiQnUDfazN-sk1laDRMjIlNPVM74xhKbOnu9vHzH1BeTBaPN5JaLnoAHcoM0CIu8aPAqOJh-hltdmbd3uIpejIBbejC8Kdl4uE0I--EoHwR8Sv10HPCJ6gWSXiMrEkW6Jb5fYKsoc71_wvHKeuszb1_ZyozjA"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-red-600 text-white rounded-full text-[10px] font-bold animate-pulse">LIVE</div>
 </div>
+<div class="space-y-2">
+<h4 class="font-bold text-lg">Neural Architectures</h4>
+<p class="text-xs text-on-surface-variant uppercase font-black tracking-widest">Starts in 12:45</p>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary font-bold rounded-xl hover:brightness-110 transition-all">Join Room</button>
+</div>
+<!-- Live Class Item 2 -->
+<div class="glass-panel p-6 rounded-3xl border-white/10 space-y-6">
+<div class="relative">
+<img alt="Teacher" class="w-full aspect-square rounded-2xl object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3nUrhohXYOaFqt2Mn3GN30JX4kwd2bQtna2IJkYoAvuZRXSqk72OJlE9c3LwLGeQfq8uDskUQCDMIbsJb-WtWFNw2f2qyhXpBtT_ME2i49VfNvzGL_NN-oDFQl-ZoW-ZUltwJq2W3E9mPNRfXQZKrpJ6i6gNTCnEjEPm6NB9Iy55KRflS_xHhcK6FEgftDUlavALI8Vpf62A1GABVFAqXTgZpmVsn_DAQfp4wEJxmQWGqaNhsl-P2ed9AC4afPXGTu1XPFBYEqA"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-white/20 backdrop-blur text-white rounded-full text-[10px] font-bold">14:00 PM</div>
+</div>
+<div class="space-y-2">
+<h4 class="font-bold text-lg">Web3 &amp; AI Fusion</h4>
+<p class="text-xs text-on-surface-variant uppercase font-black tracking-widest text-secondary">Today • 2 hours</p>
+</div>
+<button class="w-full py-4 glass-panel border-white/10 text-on-surface font-bold rounded-xl hover:bg-white/10 transition-all">Remind Me</button>
+</div>
+<!-- Live Class Item 3 -->
+<div class="glass-panel p-6 rounded-3xl border-white/10 space-y-6">
+<div class="relative">
+<img alt="Teacher" class="w-full aspect-square rounded-2xl object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-GRLCajFL7uuYNfKn-ua4_pKHVNa979B6vgW55fuos8CBbcVrxxuomDVvKdPSvBrr21sRuEbOU8L1tDQ_KgeoBluGCklqQ6tRYC9qrBrBQtqK2aihWYSoGOfLguErwOHsliIMUuFrhC0odzSrQURHIEEes8Cwlvg2LQdgCDTfudAgr-vCi27geRJjKpckESGqrw6hNi6Bmt-K8l8bB5L8RkTQv6NGXjre7PXHqcG1WOL3w39R22ShpIp1wlL7_wRLhhN3aJB2TQ"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-white/20 backdrop-blur text-white rounded-full text-[10px] font-bold">18:30 PM</div>
+</div>
+<div class="space-y-2">
+<h4 class="font-bold text-lg">Algorithmic Trading</h4>
+<p class="text-xs text-on-surface-variant uppercase font-black tracking-widest text-tertiary">Today • 1.5 hours</p>
+</div>
+<button class="w-full py-4 glass-panel border-white/10 text-on-surface font-bold rounded-xl hover:bg-white/10 transition-all">Remind Me</button>
+</div>
+<!-- Live Class Item 4 -->
+<div class="glass-panel p-6 rounded-3xl border-white/10 space-y-6">
+<div class="relative">
+<img alt="Teacher" class="w-full aspect-square rounded-2xl object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADbk3mzZ_LB-vQIHLdsboUxPD10M_9Nce1qhrIgBkGIive0e1bhpXlWWKXf8iY7pBh4OKvn7eo_p0nPjSb0UNA6j8Yb9F61L1IV98Y37ef11laz7KT3s3ax_193Wcspxyg_WeNbhYIUE1TItygR29xUkREilLjm211bcHLOdK14S89XyGOO4DlZkLTvITbW_u3kJD8F5g1Pd3LhJKKjPGA1Q2fNrhGsgN7KZAxLj0xPKrvtSQnxiPzvlXdYQOjkyNbBHVnDWBbbQ"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-white/20 backdrop-blur text-white rounded-full text-[10px] font-bold">Tomorrow</div>
+</div>
+<div class="space-y-2">
+<h4 class="font-bold text-lg">Astrobiology 101</h4>
+<p class="text-xs text-on-surface-variant uppercase font-black tracking-widest">Tomorrow • 10:00 AM</p>
+</div>
+<button class="w-full py-4 glass-panel border-white/10 text-on-surface font-bold rounded-xl hover:bg-white/10 transition-all">Remind Me</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Achievements Section -->
+<section class="py-32 bg-black relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary blur-[150px] rounded-full"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-secondary blur-[150px] rounded-full"></div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+<div class="space-y-4 reveal-hidden">
+<div class="text-6xl md:text-8xl font-black text-primary tracking-tighter counter" data-target="50000">0</div>
+<div class="text-on-surface-variant font-black uppercase tracking-[0.3em] text-xs">Students Worldwide</div>
+</div>
+<div class="space-y-4 reveal-hidden" style="transition-delay: 100ms">
+<div class="text-6xl md:text-8xl font-black text-secondary tracking-tighter counter" data-target="1500">0</div>
+<div class="text-on-surface-variant font-black uppercase tracking-[0.3em] text-xs">Master Lessons</div>
+</div>
+<div class="space-y-4 reveal-hidden" style="transition-delay: 200ms">
+<div class="text-6xl md:text-8xl font-black text-tertiary tracking-tighter counter" data-target="120">0</div>
+<div class="text-on-surface-variant font-black uppercase tracking-[0.3em] text-xs">Active Countries</div>
+</div>
+<div class="space-y-4 reveal-hidden" style="transition-delay: 300ms">
+<div class="text-6xl md:text-8xl font-black text-white tracking-tighter counter" data-target="98">0</div>
+<div class="text-on-surface-variant font-black uppercase tracking-[0.3em] text-xs">Success Rate %</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Leaderboard & Instructors -->
+<section class="py-32 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-20">
+<!-- Top Students Leaderboard -->
+<div class="space-y-12 reveal-hidden">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-4xl text-yellow-400">emoji_events</span>
+<h2 class="text-4xl font-black">Top Performers</h2>
+</div>
+<div class="glass-panel rounded-[40px] p-8 border-white/10 space-y-4">
+<div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl">
+<div class="flex items-center gap-4">
+<span class="font-black text-xl text-primary">01</span>
+<img alt="User" class="w-12 h-12 rounded-full border-2 border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2SnVzleNVOakIpFQZEPNjQ5BW9qEClQ2P5guS731qKyFd-RkuKdG9lCD3fiLBuNDOTKSz2BJqL_iiABthsvY2I8nQ72WHQ5HVCd0vboZQiChP3EBZRSMTgM-xhKlrN6Qh-tkgYrB9_K30cpgsDLc4jt3dfZ0C5RfIGsldWQCB_-apx9UtPDuZY6TexPWwZQExLg0WEY2-mD9g6Scq6cEml-U41s_FU9X0XsighnAWt4eyKSrqknpw6LJz2KHTbNzUJULHXEmgFQ"/>
 <div>
-<h4 class="font-bold text-lg mb-2">Step 1</h4>
-<p class="text-on-surface-variant text-sm">Choose Subject</p>
+<p class="font-bold">Alex Rivera</p>
+<p class="text-xs text-on-surface-variant">AI Engineering Path</p>
 </div>
 </div>
-<div class="flex flex-col items-center text-center space-y-6 reveal-hidden" style="transition-delay: 100ms">
-<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center text-secondary aura-shadow border-secondary/20">
-<span class="material-symbols-outlined text-3xl">play_circle</span>
+<div class="text-right">
+<p class="font-black text-primary">12,450 XP</p>
+<p class="text-[10px] font-bold uppercase text-on-surface-variant">Lvl 45</p>
 </div>
+</div>
+<div class="flex items-center justify-between p-4 rounded-2xl">
+<div class="flex items-center gap-4">
+<span class="font-black text-xl text-secondary">02</span>
+<img alt="User" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLRUflyb30SFo9hmpDUHLHwbigRC1mGdPN6BOjQIjch_C-16CHxeilqOd4BrL1t-rP9aJFUKp9lJKhA-l9zPg2CKxWbGK8C3XU0sGumspClONq9duNUsv3EBjmbHl86uQx3MCD-SiENMK7_HXNdJE_9CsF9RB4xJE3Tm_0P1IaP1VIj-RVURRNRnzCJmXNzviWN1LTpfyXocEnTV3Wa40tWZqMeTKtYgye8GNYCyrbd07c9unmAARNwvgT2mBq0hJqUuMXFPB8Hg"/>
 <div>
-<h4 class="font-bold text-lg mb-2">Step 2</h4>
-<p class="text-on-surface-variant text-sm">Interactive Lessons</p>
+<p class="font-bold">Sofia G.</p>
+<p class="text-xs text-on-surface-variant">Quantum Basics</p>
 </div>
 </div>
-<div class="flex flex-col items-center text-center space-y-6 reveal-hidden" style="transition-delay: 200ms">
-<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center text-tertiary aura-shadow border-tertiary/20">
-<span class="material-symbols-outlined text-3xl">fact_check</span>
+<div class="text-right">
+<p class="font-black">11,200 XP</p>
+<p class="text-[10px] font-bold uppercase text-on-surface-variant">Lvl 42</p>
 </div>
+</div>
+<div class="flex items-center justify-between p-4 rounded-2xl">
+<div class="flex items-center gap-4">
+<span class="font-black text-xl text-tertiary">03</span>
+<img alt="User" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASXFYhmGmWOTnNn4CBBtui0JzXlr7rEeR2hychcUgNNuq2t4nomFscaAIvG57hyBsSeEGfm4UeHVApucCLlmyl-KqboTjNmmwLfjtisLS3thh1kL8FujXIycN3l4ng86isY4WYpv1aT85AViNoBx4O4ZbJQ1wGJHzPHBHx9D31YzO3mpr6oGFB6kmAtLoUcCQFznTkXy0mZ5zorPPwFlvFm4L2ibcwUe18yLWdWKCxMwx-nCenN2Q6sSjjphfb_0EJ4AW39GV-Zw"/>
 <div>
-<h4 class="font-bold text-lg mb-2">Step 3</h4>
-<p class="text-on-surface-variant text-sm">Practice Quiz</p>
+<p class="font-bold">Liam Wilson</p>
+<p class="text-xs text-on-surface-variant">Rust Systems</p>
 </div>
 </div>
-<div class="flex flex-col items-center text-center space-y-6 reveal-hidden" style="transition-delay: 300ms">
-<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center text-error border-error/20">
-<span class="material-symbols-outlined text-3xl">style</span>
+<div class="text-right">
+<p class="font-black">9,850 XP</p>
+<p class="text-[10px] font-bold uppercase text-on-surface-variant">Lvl 38</p>
 </div>
+</div>
+<button class="w-full py-4 text-xs font-bold uppercase tracking-widest text-primary-fixed hover:text-primary transition-colors">View Global Leaderboard</button>
+</div>
+</div>
+<!-- Top Instructors -->
+<div class="space-y-12 reveal-hidden" style="transition-delay: 200ms">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-4xl text-primary">school</span>
+<h2 class="text-4xl font-black">Top Instructors</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div class="glass-card p-8 rounded-3xl text-center space-y-4">
+<img alt="Instructor" class="w-24 h-24 rounded-full mx-auto border-4 border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbxlqy1zBd5GTbuAxfimZGyPY7oaDRnXLLAjJ6v5uVtoHt1Fv-Bg_dj3YDRtDeS4FYY9btaYziCRzbNWVSsvMimH5SkVrq0SA0c8Bq4a4tQnopMhOwpFWYswl4nCMvk9immAqwnPEOzwJmeGUizoN8_eSCupG5CgSoNJyk5sx-JxX1f3kh8TyzTVZwF2bgr3xFVrzDC8foRJk8wDY21z6IbAxibmAGpDnd8zXVQ9ADSwvHbuhd0WFCRKivf1uwnWyDk_q3z_jopw"/>
 <div>
-<h4 class="font-bold text-lg mb-2">Step 4</h4>
-<p class="text-on-surface-variant text-sm">Smart Flashcards</p>
+<h4 class="font-bold text-xl">Dr. Emily Watts</h4>
+<p class="text-xs text-primary font-bold">ML Research at OpenAI</p>
+</div>
+<div class="flex justify-center items-center gap-1">
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="text-sm font-bold">4.9/5.0</span>
 </div>
 </div>
-<div class="flex flex-col items-center text-center space-y-6 reveal-hidden" style="transition-delay: 400ms">
-<div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary aura-shadow border border-primary/40">
-<span class="material-symbols-outlined text-3xl">verified</span>
-</div>
+<div class="glass-card p-8 rounded-3xl text-center space-y-4">
+<img alt="Instructor" class="w-24 h-24 rounded-full mx-auto border-4 border-secondary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAZbub00g5Z7wJQg0-9SEujNoKz3xvR2u19rGGDxSV4QNEkBcp3ekO9t3oM326vouIER_-eT7zcVWjRC3005c8nc3n6gT0Ahoao_iOg_Vngd_B_2H1W5PNxhUfhq1mE2A2WP1UL1cNE8XMjiiTDB2VJkyAZZ8Q804DYgd_e_41woa_KFXrHwRW4oFvSRNYaLduVBTKgi5PHQqvLxNXXJ1hnqskL2KWclkqygQAmLL6-htAt3nMyhOZ1HKZMDRmOc5QoRCWS8Q0Dg"/>
 <div>
-<h4 class="font-bold text-lg mb-2">Step 5</h4>
-<p class="text-on-surface-variant text-sm">Get Certified</p>
+<h4 class="font-bold text-xl">John Doe</h4>
+<p class="text-xs text-secondary font-bold">Principal Engineer</p>
+</div>
+<div class="flex justify-center items-center gap-1">
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="text-sm font-bold">4.8/5.0</span>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Streak & Badges Section -->
-<section class="py-32 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest/30">
-<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<!-- Certificate Preview -->
+<section class="py-32 bg-surface-container/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 <div class="space-y-8 reveal-hidden">
-<h2 class="font-headline-lg text-4xl md:text-5xl font-bold leading-tight">Stay Motivated, <br/><span class="text-gradient">Achieve More</span></h2>
-<p class="text-on-surface-variant text-lg">Gamified learning designed to keep you consistent and reward your progress every single day.</p>
-<div class="grid grid-cols-2 gap-6 pt-4">
-<div class="glass-panel p-6 rounded-3xl border-white/10 hover:border-primary/30 transition-all cursor-pointer">
-<div class="flex items-center gap-4 mb-4">
-<span class="material-symbols-outlined text-primary">local_fire_department</span>
-<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Daily Streak</span>
+<h2 class="text-4xl md:text-5xl font-black leading-tight">Get Verifiable <br/><span class="text-gradient">Credentials</span></h2>
+<p class="text-on-surface-variant text-lg leading-relaxed">Each learning path concludes with a professional certificate backed by the Ethereum blockchain. Showcase your skills to top employers with confidence.</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 font-bold"><span class="material-symbols-outlined text-primary">verified</span> Share on LinkedIn &amp; Twitter</li>
+<li class="flex items-center gap-3 font-bold"><span class="material-symbols-outlined text-primary">verified</span> Blockchain Verifiable ID</li>
+<li class="flex items-center gap-3 font-bold"><span class="material-symbols-outlined text-primary">verified</span> Industry Recognized Standard</li>
+</ul>
+<button class="px-10 py-5 bg-primary text-on-primary font-bold rounded-full hover:scale-105 transition-all">Claim Your Certificate</button>
 </div>
-<p class="text-3xl font-black">12 Days</p>
+<div class="reveal-hidden" style="transition-delay: 200ms">
+<div class="relative glass-card p-1 shadow-2xl rounded-3xl">
+<div class="bg-[#1a1920] rounded-[22px] p-12 border border-white/5 space-y-12">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-4xl">auto_awesome</span>
+<span class="font-black text-2xl tracking-tighter">AURA STUDY</span>
 </div>
-<div class="glass-panel p-6 rounded-3xl border-white/10 hover:border-secondary/30 transition-all cursor-pointer">
-<div class="flex items-center gap-4 mb-4">
-<span class="material-symbols-outlined text-secondary">trending_up</span>
-<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">XP Earned</span>
-</div>
-<p class="text-3xl font-black">4,250</p>
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl">workspace_premium</span>
 </div>
 </div>
+<div class="text-center space-y-4">
+<p class="text-xs uppercase tracking-[0.5em] text-on-surface-variant">CERTIFICATE OF COMPLETION</p>
+<h3 class="text-4xl font-black">Jonathan S. Doe</h3>
+<p class="text-on-surface-variant font-medium">has successfully mastered the curriculum for</p>
+<p class="text-2xl font-bold text-primary">Advanced Generative AI Systems</p>
 </div>
-<div class="relative reveal-hidden" style="transition-delay: 200ms">
-<div class="absolute -inset-10 bg-primary/10 blur-[80px] rounded-full opacity-50"></div>
-<div class="relative glass-panel rounded-[40px] p-10 border-white/10 aura-shadow grid grid-cols-3 gap-6">
-<div class="flex flex-col items-center gap-3">
-<div class="w-20 h-20 rounded-full glass-panel border-primary/20 flex items-center justify-center animate-float" style="animation-delay: 0.1s">
-<span class="material-symbols-outlined text-primary text-4xl">bolt</span>
+<div class="flex justify-between items-end pt-12">
+<div class="text-left space-y-2">
+<div class="w-32 h-[1px] bg-white/20"></div>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">DR. ELENA ROSS</p>
+<p class="text-[8px] text-white/40">CHIEF ACADEMIC OFFICER</p>
 </div>
-<p class="text-[10px] font-bold uppercase text-center">Fast Learner</p>
+<div class="text-right">
+<div class="p-2 bg-white rounded-lg inline-block">
+<div class="w-12 h-12 bg-black flex items-center justify-center text-[10px] font-black text-white">QR</div>
 </div>
-<div class="flex flex-col items-center gap-3">
-<div class="w-20 h-20 rounded-full glass-panel border-secondary/20 flex items-center justify-center animate-float" style="animation-delay: 0.5s">
-<span class="material-symbols-outlined text-secondary text-4xl">quiz</span>
+<p class="text-[8px] text-white/40 mt-2">VERIFIED: AUR-982-11-X</p>
 </div>
-<p class="text-[10px] font-bold uppercase text-center">Quiz Master</p>
 </div>
-<div class="flex flex-col items-center gap-3">
-<div class="w-20 h-20 rounded-full glass-panel border-error/20 flex items-center justify-center animate-float" style="animation-delay: 0.9s">
-<span class="material-symbols-outlined text-error text-4xl">calendar_today</span>
 </div>
-<p class="text-[10px] font-bold uppercase text-center">7 Day Streak</p>
-</div>
-<div class="flex flex-col items-center gap-3">
-<div class="w-20 h-20 rounded-full glass-panel border-tertiary/20 flex items-center justify-center animate-float" style="animation-delay: 1.3s">
-<span class="material-symbols-outlined text-tertiary text-4xl">workspace_premium</span>
-</div>
-<p class="text-[10px] font-bold uppercase text-center">Top Performer</p>
-</div>
-<div class="flex flex-col items-center gap-3">
-<div class="w-20 h-20 rounded-full glass-panel border-primary-fixed/20 flex items-center justify-center animate-float" style="animation-delay: 1.7s">
-<span class="material-symbols-outlined text-primary-fixed text-4xl">smart_toy</span>
-</div>
-<p class="text-[10px] font-bold uppercase text-center">AI Explorer</p>
-</div>
-<div class="flex flex-col items-center gap-3 opacity-30">
-<div class="w-20 h-20 rounded-full glass-panel border-white/5 flex items-center justify-center">
-<span class="material-symbols-outlined text-white/20 text-4xl">lock</span>
-</div>
-<p class="text-[10px] font-bold uppercase text-center">???</p>
+<div class="absolute -bottom-6 -right-6">
+<button class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xl hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">download</span>
+</button>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Student Reviews Carousel -->
-<section class="py-32 overflow-hidden">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-20 reveal-hidden text-center">
-<h2 class="font-headline-lg text-4xl md:text-5xl font-bold">What Our Students Say</h2>
+<!-- Testimonials Section -->
+<section class="py-32 overflow-hidden bg-black/50">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-20 text-center reveal-hidden">
+<h2 class="text-4xl md:text-5xl font-black mb-4">Loved by <span class="text-gradient">Innovators</span></h2>
+<p class="text-on-surface-variant">Hear from our alumni working at leading tech giants.</p>
 </div>
 <div class="relative reveal-hidden">
-<div class="carousel-track px-margin-mobile md:px-0 gap-8" id="testimonial-carousel">
-<div class="min-w-[320px] md:min-w-[400px] glass-panel p-10 rounded-3xl border-white/5 flex flex-col justify-between">
-<p class="text-lg italic leading-relaxed text-on-surface">"The visual explanations for physics are unprecedented. It finally clicked after months of struggling with textbooks."</p>
-<div class="mt-8 flex items-center gap-4">
-<img alt="Sarah" class="w-12 h-12 rounded-full border border-primary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGorE4VuA_1bcfEPIUBaI_l_pyGep-CwC04Ua8L9tQn24i2HLjWEF_9PsJdODmWhftxJGfNbUMtbwWNDdkA1sUR6VIDtATG49qZt68hbxlzv-IyTUBrab9Uok3-AxSK3t43kCKH8ihp_U4a9Qk1Uby7jdeGZtC6tNTh-rsFeIaoSA34Ks9c2kIYXWHcI8_kxNEJAo-ad9Z63FcPoYaX0g4lSCXeYKmtE6HM0jg4mhX7Yyy1EbGxErBLQw7K6dBvlIOsY4rlxP2OA"/>
+<div class="carousel-track gap-8 px-margin-mobile" id="testimonial-carousel">
+<!-- Testimonial 1 -->
+<div class="min-w-[350px] md:min-w-[450px] glass-card p-10 rounded-[40px]">
+<div class="flex gap-1 text-yellow-400 mb-6">
+<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-lg font-medium leading-relaxed mb-8 italic">"The visual explanations for neural networks are the best I've seen. Aura Study literally changed my career trajectory from web dev to ML engineer."</p>
+<div class="flex items-center gap-4">
+<img alt="Sarah" class="w-14 h-14 rounded-full border-2 border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM5mUejLeF1fvz2dstSXVA6cnO7gyELTydad0pcRVCnlQuJnPd8ZIMwss2dAyEV0kb-VJGZ7qohnk7pTFFKj4rWc-bIZEsAZOIyBWJxdc_IzxWhCsPoBoGKuV7cn6VPn8NLJGKMFMv2tjXdTEBnDd8MDnzwoXtr2YbQ2HnIZPiv58nLxqc6OXdFIDR08KkzPOlIiNTWPTEN2V4Yr4OSqyBsE-ayy--oBb6ZskTpjonny-EoAHEGvndK3Vdk5FsfpDdTC2ZaYuOWA"/>
 <div>
-<p class="font-bold">Sarah Mitchell</p>
-<p class="text-xs text-on-surface-variant">UK • ⭐⭐⭐⭐⭐</p>
+<p class="font-bold text-lg">Sarah Mitchell</p>
+<p class="text-sm text-on-surface-variant font-bold">Senior ML Engineer at Tesla</p>
 </div>
 </div>
 </div>
-<div class="min-w-[320px] md:min-w-[400px] glass-panel p-10 rounded-3xl border-white/5 flex flex-col justify-between">
-<p class="text-lg italic leading-relaxed text-on-surface">"Aura Study's interface is so clean. It's the only platform that doesn't feel like a chore. The AI tutor is incredible."</p>
-<div class="mt-8 flex items-center gap-4">
-<img alt="James" class="w-12 h-12 rounded-full border border-secondary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtRbJUdP74eWDN89td6CPwaF20-1XQx0BVgxo9Z1jTOdCmhUSITGXUlmQ0vHMrL4wAsDikaGu1IJIumoHpV0k5Pzs1oWbZ1S6O4rU4YEKq48wrd_w7slj_LfJyrzRrr1ZIrZhn5YutEUArvXA3wmdHYSaZ5eLdlbVwyGtGQRf2rDxKyJN5DdFLsc-4zRKZdq7FMqE1fL9UglLrih6IO0fSyQVL1npwfoTj8NYIbAZdQCTD3aY3TX3mVq7l6-52-zmar5MzPuE7Uw"/>
+<!-- Testimonial 2 -->
+<div class="min-w-[350px] md:min-w-[450px] glass-card p-10 rounded-[40px]">
+<div class="flex gap-1 text-yellow-400 mb-6">
+<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-lg font-medium leading-relaxed mb-8 italic">"Interface is clean, lessons are interactive, and the AI tutor is actually helpful. It doesn't just give answers, it teaches you how to think."</p>
+<div class="flex items-center gap-4">
+<img alt="James" class="w-14 h-14 rounded-full border-2 border-secondary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeflEhKByxQZxpr1jc9nvXT8RTY4bAT9lFfCkHqPHCSftfDp9AngIh9Xpk2MBJzO7LYqzeZG96D_ytL9oTpgNqjXrK010c0xyY8O220_Ofxfxb5XLsPHqPGbKjEBIxRSSzh0v9oaF9TdvUrKTVDdl9mYmU_LPdlC6BtxVvVAnPIuy9Axv8AYtBlU5f5xfZy9nhzDb4Ab0VEH5nt1HD51z2tk1Ku0Pz1_Cbg8cbUXEkkAKjjGqM__IlPQWINkhzX3OmZ_gde7ub4w"/>
 <div>
-<p class="font-bold">James Liang</p>
-<p class="text-xs text-on-surface-variant">USA • ⭐⭐⭐⭐⭐</p>
-</div>
-</div>
-</div>
-<div class="min-w-[320px] md:min-w-[400px] glass-panel p-10 rounded-3xl border-white/5 flex flex-col justify-between">
-<p class="text-lg italic leading-relaxed text-on-surface">"The flashcard system integrated directly into the course flow is genius. Spaced repetition actually works here."</p>
-<div class="mt-8 flex items-center gap-4">
-<img alt="Elena" class="w-12 h-12 rounded-full border border-tertiary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1V9ooM9DthiWZyQiuufCFRUBij40n4VTnoC3jJD0sh1pSH104cWgu4HpSnBojSW2_ql4Xx-G0Jc-9Poud38rVZzs-ir7rpjWh2MRIuOIkk_OmWZfTB0PP96gNqFP4d3EHWY9PXbd0_0YNHllsG_JmEnhppgAefad_g5OsdA1jOog8f3Y_q5V6zLbSQTf1rJpq5dPXLKn59BIM-dz8TAdMxfFjP0K6i_YNUU68pVexvgz1ViGPFFzkecPEnv0C46bRYBC0eB9Qvw"/>
-<div>
-<p class="font-bold">Elena Kostic</p>
-<p class="text-xs text-on-surface-variant">Serbia • ⭐⭐⭐⭐⭐</p>
-</div>
-</div>
-</div>
-<div class="min-w-[320px] md:min-w-[400px] glass-panel p-10 rounded-3xl border-white/5 flex flex-col justify-between">
-<p class="text-lg italic leading-relaxed text-on-surface">"I never thought learning Rust would be this intuitive. The interactive coding environment is best-in-class."</p>
-<div class="mt-8 flex items-center gap-4">
-<img alt="Marcus" class="w-12 h-12 rounded-full border border-error/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkuj41GFCzufhfEbPHr4drF7hoU1Q29KMEJXf_4kohntgOpjIAMtxMQsCVLcbGsiJ0sT9XjEKUWAg9aoCtqe22UUmrJG1GpwApFLmq7WymlbrmFq5Blv00nqy9RD6BqwuF_7lu22CylydNZOejs61dC6alVpNDa1Z0XuJa2pMDBlgSx2fAKTQGZ8sKVIBDpZsm6fqTXtJ2-3Dk-OEnjcuTnca7WJwE4AzCaUziNIDRjNY8kIsfzqGcqVJMdRJ4MZUMyNao3Nkxww"/>
-<div>
-<p class="font-bold">Marcus Chen</p>
-<p class="text-xs text-on-surface-variant">Canada • ⭐⭐⭐⭐⭐</p>
+<p class="font-bold text-lg">James Liang</p>
+<p class="text-sm text-on-surface-variant font-bold">Founder at Neural-X</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- FAQ Section -->
-<section class="py-32 bg-surface-container-lowest">
-<div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="text-center mb-20 space-y-4 reveal-hidden">
-<h2 class="font-headline-lg text-4xl font-bold">Frequently Asked Questions</h2>
-</div>
-<div class="space-y-4 reveal-hidden">
-<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 open:border-primary/20">
-<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-<span class="font-bold">What is Aura Study?</span>
-<div class="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center transition-transform group-open:rotate-180">
-<span class="material-symbols-outlined text-sm">expand_more</span>
-</div>
-</summary>
-<div class="px-6 pb-6 text-on-surface-variant text-sm">
-                        Aura Study is a premium education platform designed with cognitive science principles to help students achieve deep academic mastery through visual and interactive learning.
-                    </div>
-</details>
-<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 open:border-primary/20">
-<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-<span class="font-bold">How much does it cost?</span>
-<div class="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center transition-transform group-open:rotate-180">
-<span class="material-symbols-outlined text-sm">expand_more</span>
-</div>
-</summary>
-<div class="px-6 pb-6 text-on-surface-variant text-sm">
-                        We offer a generous free tier for beginners. Premium plans for advanced courses and AI-powered personalized coaching start at $12/month.
-                    </div>
-</details>
-<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 open:border-primary/20">
-<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-<span class="font-bold">Is the AI Tutor available 24/7?</span>
-<div class="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center transition-transform group-open:rotate-180">
-<span class="material-symbols-outlined text-sm">expand_more</span>
-</div>
-</summary>
-<div class="px-6 pb-6 text-on-surface-variant text-sm">
-                        Yes, our AI Tutor is built on state-of-the-art LLMs and is available around the clock to answer your questions and provide personalized explanations.
-                    </div>
-</details>
-<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 open:border-primary/20">
-<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-<span class="font-bold">Can I access lessons on mobile?</span>
-<div class="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center transition-transform group-open:rotate-180">
-<span class="material-symbols-outlined text-sm">expand_more</span>
-</div>
-</summary>
-<div class="px-6 pb-6 text-on-surface-variant text-sm">
-                        Absolutely. Aura Study is fully responsive and available as a progressive web app that you can install on any iOS or Android device.
-                    </div>
-</details>
-<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 open:border-primary/20">
-<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-<span class="font-bold">Do I get certificates for completing courses?</span>
-<div class="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center transition-transform group-open:rotate-180">
-<span class="material-symbols-outlined text-sm">expand_more</span>
-</div>
-</summary>
-<div class="px-6 pb-6 text-on-surface-variant text-sm">
-                        Yes, every completed learning path awards a verifiable digital certificate that you can share on LinkedIn or with potential employers.
-                    </div>
-</details>
+<!-- Community & Install Section -->
+<section class="py-32 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-12" id="community">
+<div class="glass-card p-12 rounded-[48px] bg-gradient-to-br from-primary/10 to-transparent flex flex-col justify-between space-y-12 reveal-hidden">
+<div class="space-y-6">
+<h3 class="text-4xl font-black">Join the <span class="text-gradient">Aura Circle</span></h3>
+<p class="text-on-surface-variant text-lg">Collaborate with thousands of AI enthusiasts in our private Discord and Telegram channels.</p>
+<div class="flex gap-4">
+<a class="w-14 h-14 rounded-2xl glass-panel flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all" href="#"><span class="material-symbols-outlined">forum</span></a>
+<a class="w-14 h-14 rounded-2xl glass-panel flex items-center justify-center hover:bg-secondary hover:text-on-secondary transition-all" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="w-14 h-14 rounded-2xl glass-panel flex items-center justify-center hover:bg-tertiary hover:text-on-tertiary transition-all" href="#"><span class="material-symbols-outlined">share</span></a>
 </div>
 </div>
-</section>
-<!-- CTA Section -->
-<section class="py-32 px-margin-mobile md:px-margin-desktop">
-<div class="max-w-container-max mx-auto glass-panel rounded-[60px] p-16 md:p-32 text-center space-y-10 relative overflow-hidden aura-shadow border border-white/10 reveal-hidden">
-<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20 pointer-events-none opacity-50"></div>
-<h2 class="font-headline-lg text-5xl md:text-7xl leading-tight font-bold text-on-surface relative z-10">Ready to transform <br/><span class="text-gradient">your mind?</span></h2>
-<p class="text-on-surface-variant text-xl max-w-2xl mx-auto relative z-10">Join a global community of lifelong learners and master the subjects of tomorrow.</p>
-<div class="pt-8 relative z-10">
-<button class="px-16 py-6 rounded-full bg-primary text-on-primary font-bold text-lg hover:scale-105 active:scale-95 transition-all aura-shadow shadow-primary/30">
-                    Start Your Journey Now — Free
+<div class="flex flex-wrap gap-4">
+<button class="flex items-center gap-3 px-8 py-4 glass-panel rounded-2xl font-bold hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined">bolt</span> Join Discord
+                </button>
+<button class="flex items-center gap-3 px-8 py-4 glass-panel rounded-2xl font-bold hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined">send</span> Telegram
+                </button>
+</div>
+</div>
+<div class="glass-card p-12 rounded-[48px] bg-gradient-to-bl from-secondary/10 to-transparent flex flex-col justify-between space-y-12 reveal-hidden" style="transition-delay: 200ms">
+<div class="space-y-6">
+<h3 class="text-4xl font-black">Learning <span class="text-gradient">Everywhere</span></h3>
+<p class="text-on-surface-variant text-lg">Install the Aura Study app on your devices for seamless offline access and mobile notifications.</p>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="flex items-center gap-3 px-8 py-4 bg-white text-black rounded-2xl font-bold hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">apple</span> App Store
+                </button>
+<button class="flex items-center gap-3 px-8 py-4 bg-white text-black rounded-2xl font-bold hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">robot_2</span> Play Store
+                </button>
+<button class="flex items-center gap-3 px-8 py-4 glass-panel rounded-2xl font-bold hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined">web</span> Install PWA
                 </button>
 </div>
 </div>
 </section>
+<!-- Newsletter Section -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-4xl mx-auto glass-card p-16 rounded-[60px] text-center space-y-10 reveal-hidden relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-secondary/10 opacity-50"></div>
+<div class="relative z-10 space-y-6">
+<h2 class="text-4xl md:text-5xl font-black">Stay Ahead of the <br/><span class="text-gradient">Curve</span></h2>
+<p class="text-on-surface-variant font-medium">Join 250,000+ subscribers and get the latest AI insights delivered to your inbox weekly.</p>
+<form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+<input class="flex-1 bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary outline-none text-on-surface" placeholder="Enter your email" type="email"/>
+<button class="px-10 py-4 bg-primary text-on-primary font-bold rounded-2xl shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all">Subscribe</button>
+</form>
+<div class="flex flex-wrap justify-center items-center gap-8 pt-8 opacity-40">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">lock</span> <span class="text-[10px] font-bold uppercase tracking-widest">SSL Encrypted</span></div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">policy</span> <span class="text-[10px] font-bold uppercase tracking-widest">GDPR Compliant</span></div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">verified_user</span> <span class="text-[10px] font-bold uppercase tracking-widest">Privacy First</span></div>
+</div>
+</div>
+</div>
+</section>
 </main>
-<!-- Professional Footer -->
-<footer class="bg-surface-container-lowest w-full pt-24 pb-12 border-t border-white/5">
-<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 lg:gap-8 mb-20">
+<!-- Footer -->
+<footer class="bg-[#050408] border-t border-white/5 pt-24 pb-12">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-16 lg:gap-8 mb-20">
 <div class="lg:col-span-2 space-y-8">
 <div class="flex items-center gap-2">
-<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center">
-<span class="material-symbols-outlined text-on-primary-container text-xl">auto_awesome</span>
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-2xl">auto_awesome</span>
 </div>
-<div class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface">Aura Study</div>
+<div class="font-bold text-2xl tracking-tighter text-on-surface">Aura Study</div>
 </div>
-<p class="text-on-surface-variant text-sm leading-relaxed max-w-xs">
-                A premium education platform dedicated to cognitive clarity and deep academic mastery. We believe in learning that lasts a lifetime.
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-xs font-medium">
+                The world's most advanced AI-powered education ecosystem. Empowering the next generation of builders, thinkers, and innovators.
             </p>
 <div class="flex gap-4">
-<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors border border-white/5" href="#"><span class="material-symbols-outlined text-xl">public</span></a>
-<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors border border-white/5" href="#"><span class="material-symbols-outlined text-xl">share</span></a>
-<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors border border-white/5" href="#"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
+<a class="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all border border-white/5" href="#"><span class="material-symbols-outlined text-xl">public</span></a>
+<a class="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all border border-white/5" href="#"><span class="material-symbols-outlined text-xl">share</span></a>
+<a class="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all border border-white/5" href="#"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
 </div>
 </div>
 <div>
-<h4 class="font-bold mb-8 text-on-surface">Learning</h4>
+<h4 class="font-bold mb-8 text-on-surface text-sm uppercase tracking-widest">Learning</h4>
 <ul class="space-y-4 text-on-surface-variant text-sm">
 <li><a class="hover:text-primary transition-colors" href="#">All Courses</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">Subjects</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Curriculum</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Scholarships</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Enterprise</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Live Classes</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Certificates</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Mentorship</a></li>
 </ul>
 </div>
 <div>
-<h4 class="font-bold mb-8 text-on-surface">Community</h4>
+<h4 class="font-bold mb-8 text-on-surface text-sm uppercase tracking-widest">Company</h4>
 <ul class="space-y-4 text-on-surface-variant text-sm">
-<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Forums</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">Press Kit</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
 </ul>
 </div>
 <div>
-<h4 class="font-bold mb-8 text-on-surface">Support</h4>
+<h4 class="font-bold mb-8 text-on-surface text-sm uppercase tracking-widest">Support</h4>
 <ul class="space-y-4 text-on-surface-variant text-sm">
 <li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Community</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Status</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Cookies</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
 </ul>
+</div>
+<div class="lg:col-span-1 space-y-8">
+<h4 class="font-bold mb-8 text-on-surface text-sm uppercase tracking-widest">Region</h4>
+<div class="space-y-4">
+<select class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-on-surface-variant focus:ring-0 outline-none">
+<option>United States (EN)</option>
+<option>United Kingdom (EN)</option>
+<option>Germany (DE)</option>
+<option>France (FR)</option>
+</select>
+<select class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs text-on-surface-variant focus:ring-0 outline-none">
+<option>USD ($)</option>
+<option>EUR (€)</option>
+<option>GBP (£)</option>
+</select>
+</div>
 </div>
 </div>
 <div class="max-w-container-max mx-auto px-margin-desktop pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
 <div class="flex flex-col md:flex-row items-center gap-6">
-<p class="text-on-surface-variant text-xs">© 2026 Aura Study. All rights reserved.</p>
-<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-on-surface-variant">
-<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> SYSTEMS NORMAL
+<p class="text-on-surface-variant text-xs font-medium">© 2026 Aura Study. All rights reserved.</p>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-[10px] font-black text-green-500 uppercase tracking-tighter">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> ALL SYSTEMS NORMAL
             </div>
-<p class="text-on-surface-variant text-xs">Made with ❤️ for the future of education.</p>
 </div>
-<div class="flex items-center gap-6">
-<select class="bg-transparent border-none text-xs text-on-surface-variant focus:ring-0 cursor-pointer hover:text-primary">
-<option>English (US)</option>
-<option>Spanish</option>
-<option>French</option>
-</select>
-<select class="bg-transparent border-none text-xs text-on-surface-variant focus:ring-0 cursor-pointer hover:text-primary">
-<option>United States</option>
-<option>United Kingdom</option>
-<option>Germany</option>
-</select>
-</div>
+<p class="text-on-surface-variant text-xs font-bold">Made with ❤️ for learners worldwide.</p>
 </div>
 </footer>
 <script>
-    // WebGL Background Simulation
-    const canvas = document.getElementById('webgl-canvas');
-    const gl = canvas.getContext('webgl');
-    if (gl) {
-        const vertexShaderSource = `attribute vec2 position; varying vec2 v_texCoord; void main() { v_texCoord = position * 0.5 + 0.5; v_texCoord.y = 1.0 - v_texCoord.y; gl_Position = vec4(position, 0.0, 1.0); }`;
-        const fragmentShaderSource = `precision highp float; varying vec2 v_texCoord; uniform float u_time; void main() { vec2 uv = v_texCoord; float noise1 = sin(uv.x * 3.0 + u_time * 0.2) * cos(uv.y * 2.0 - u_time * 0.1); float noise2 = cos(uv.y * 4.0 + u_time * 0.15) * sin(uv.x * 2.0 + u_time * 0.25); vec3 color1 = vec3(0.08, 0.07, 0.1); vec3 color2 = vec3(0.15, 0.1, 0.25); float mixFactor = (noise1 + noise2 + 1.0) / 2.0; vec3 finalColor = mix(color1, color2, mixFactor); float vignette = 1.0 - length(uv - 0.5) * 0.8; gl_FragColor = vec4(finalColor * vignette, 1.0); }`;
-        function createShader(gl, type, source) { const shader = gl.createShader(type); gl.shaderSource(shader, source); gl.compileShader(shader); return shader; }
-        const program = gl.createProgram();
-        gl.attachShader(program, createShader(gl, gl.VERTEX_SHADER, vertexShaderSource));
-        gl.attachShader(program, createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource));
-        gl.linkProgram(program); gl.useProgram(program);
-        const positionBuffer = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
-        const posLoc = gl.getAttribLocation(program, "position"); gl.enableVertexAttribArray(posLoc); gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
-        const timeLoc = gl.getUniformLocation(program, "u_time");
-        function render(time) { canvas.width = canvas.clientWidth; canvas.height = canvas.clientHeight; gl.viewport(0, 0, canvas.width, canvas.height); gl.uniform1f(timeLoc, time * 0.001); gl.drawArrays(gl.TRIANGLES, 0, 6); requestAnimationFrame(render); }
-        requestAnimationFrame(render);
-    }
+    // WebGL Shader Simulation (Background)
+    (function() {
+        const canvas = document.getElementById('shader-canvas');
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) return;
 
-    // Floating Particles
-    const container = document.getElementById('particles-container');
-    for (let i = 0; i < 50; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        const size = Math.random() * 3 + 1;
-        p.style.width = `${size}px`; p.style.height = `${size}px`;
-        p.style.left = `${Math.random() * 100}%`; p.style.top = `${Math.random() * 100}%`;
-        p.style.animation = `float ${Math.random() * 10 + 5}s linear infinite`;
-        p.style.animationDelay = `${Math.random() * 5}s`;
-        container.appendChild(p);
-    }
+        function syncSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            gl.viewport(0, 0, canvas.width, canvas.height);
+        }
+        window.addEventListener('resize', syncSize);
+        syncSize();
+
+        const vs = `attribute vec2 a_position; varying vec2 v_texCoord; void main() { v_texCoord = a_position * 0.5 + 0.5; gl_Position = vec4(a_position, 0.0, 1.0); }`;
+        const fs = `precision highp float;
+        varying vec2 v_texCoord;
+        uniform float u_time;
+        void main() {
+            vec2 uv = v_texCoord;
+            float noise1 = sin(uv.x * 3.0 + u_time * 0.1) * cos(uv.y * 2.0 - u_time * 0.05);
+            float noise2 = cos(uv.y * 4.0 + u_time * 0.08) * sin(uv.x * 2.0 + u_time * 0.12);
+            vec3 color1 = vec3(0.04, 0.04, 0.06); 
+            vec3 color2 = vec3(0.12, 0.08, 0.22);
+            float mixFactor = (noise1 + noise2 + 1.0) / 2.0;
+            vec3 finalColor = mix(color1, color2, mixFactor * 0.4);
+            float vignette = 1.0 - length(uv - 0.5) * 0.6;
+            gl_FragColor = vec4(finalColor * vignette, 1.0);
+        }`;
+
+        function cs(type, src) {
+            const s = gl.createShader(type);
+            gl.shaderSource(s, src);
+            gl.compileShader(s);
+            return s;
+        }
+        const prog = gl.createProgram();
+        gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+        gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+        gl.linkProgram(prog);
+        gl.useProgram(prog);
+
+        const buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+        const pos = gl.getAttribLocation(prog, 'a_position');
+        gl.enableVertexAttribArray(pos);
+        gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+        const uTime = gl.getUniformLocation(prog, 'u_time');
+
+        function render(t) {
+            gl.uniform1f(uTime, t * 0.001);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+            requestAnimationFrame(render);
+        }
+        render(0);
+    })();
 
     // Intersection Observer for Reveal & Counters
-    const observer = new IntersectionObserver((entries) => {
+    const observerOptions = { threshold: 0.1 };
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('reveal-visible');
@@ -671,25 +919,26 @@
                     const update = () => {
                         count += step;
                         if (count < target) {
-                            entry.target.innerText = Math.floor(count).toLocaleString() + (target === 95 ? '' : '+');
+                            entry.target.innerText = Math.floor(count).toLocaleString() + (target === 98 ? '%' : '+');
                             requestAnimationFrame(update);
                         } else {
-                            entry.target.innerText = target.toLocaleString() + (target === 95 ? '' : '+');
+                            entry.target.innerText = target.toLocaleString() + (target === 98 ? '%' : '+');
                         }
                     };
                     update();
                 }
             }
         });
-    }, { threshold: 0.1 });
+    }, observerOptions);
 
-    document.querySelectorAll('.reveal-hidden, .counter').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal-hidden, .counter').forEach(el => revealObserver.observe(el));
 
     // Testimonial Carousel Auto-slide
     const carousel = document.getElementById('testimonial-carousel');
     let scrollPos = 0;
     setInterval(() => {
-        scrollPos += 400 + 32; // card width + gap
+        const itemWidth = carousel.firstElementChild.offsetWidth + 32;
+        scrollPos += itemWidth;
         if (scrollPos >= carousel.scrollWidth - window.innerWidth) scrollPos = 0;
         carousel.style.transform = `translateX(-${scrollPos}px)`;
     }, 4000);

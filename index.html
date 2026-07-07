@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -106,7 +105,7 @@
         .glass-panel {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
         }
         .aura-shadow {
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
@@ -116,418 +115,583 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .nav-blur {
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+        .particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.3;
+            filter: blur(1px);
+        }
+        .reveal-hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
         }
     </style>
 </head>
-<body class="bg-background text-on-background">
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl border-b border-white/10 dark:border-white/5 shadow-sm">
-<div class="flex justify-between items-center h-16 px-margin-desktop max-w-container-max mx-auto">
-<div class="font-headline-md text-headline-md font-semibold tracking-tight text-on-surface dark:text-on-surface">
+<body class="bg-background text-on-background overflow-x-hidden">
+<!-- Header -->
+<nav class="fixed top-0 w-full z-[100] bg-surface/40 backdrop-blur-xl border-b border-white/10">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-xl">auto_awesome</span>
+</div>
+<div class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface">
                 Aura Study
             </div>
-<div class="hidden md:flex items-center gap-8">
-<a class="text-primary dark:text-primary-fixed font-medium border-b-2 border-primary py-1" href="#">Home</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Courses</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Subjects</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">About</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Contact</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Dashboard</a>
 </div>
-<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-body-md text-body-md font-medium active:scale-95 transition-transform">
+<div class="hidden lg:flex items-center gap-10">
+<a class="text-primary font-semibold relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-medium" href="#">Subjects</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-medium" href="#">Courses</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-medium" href="#">Community</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-medium" href="#">About</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-8 py-2.5 rounded-full font-body-md text-body-md font-bold active:scale-95 transition-all aura-shadow hover:brightness-110">
                 Start Learning
             </button>
+<button class="lg:hidden text-on-surface p-2">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
 </div>
 </nav>
-<main class="pt-16">
+<main>
 <!-- Hero Section -->
-<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-margin-mobile md:px-margin-desktop">
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 px-margin-mobile md:px-margin-desktop">
 <div class="absolute inset-0 z-0">
-<img alt="" class="w-full h-full object-cover opacity-40 mix-blend-lighten" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmdG96c8PQG0mLbIJNG2CoAXMIuClRB4TYjLm8Eu-Hr1771Zl2z4LP2kewe1PxMWGnuBdLeCqo8g9ZWUYeiNpWk2bVzCoDizugvHGgLZ2TFdtSoQdla_0Uq461AQJFA4YUYXb8lv8dbU9YZMFXPszgzaXoGxse--duxhY50ILasuvtfXLQboybeLhyD06bVzYJmm7X-CTEXY2LHFKfNoM9XmQK5hyQb20o0ryKHR8WwbYrdeJ_QduXhxYS8R_8j0o9tpSTBoFNWQ"/>
-<div class="absolute inset-0 bg-gradient-to-b from-background/0 via-background/60 to-background"></div>
+<canvas class="w-full h-full" id="webgl-canvas"></canvas>
+<div class="absolute inset-0 bg-gradient-to-b from-background/0 via-background/20 to-background"></div>
 </div>
-<div class="relative z-10 max-w-4xl text-center space-y-8">
-<div class="inline-flex items-center px-4 py-1.5 rounded-full glass-panel text-primary font-label-sm uppercase tracking-widest animate-fade-in">
-                    Academic Excellence
-                </div>
-<h1 class="font-headline-lg text-headline-lg md:text-[64px] md:leading-[1.1] font-bold tracking-tight text-on-surface">
-                    The Future of Learning <span class="text-gradient block md:inline">Starts Here.</span>
-</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto opacity-80">
-                    Master any subject with interactive lessons, visual explanations, quizzes, and AI-powered learning tailored to your unique pace.
+<div class="absolute inset-0 pointer-events-none z-[1]" id="particles-container"></div>
+<div class="relative z-10 max-w-container-max w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8 text-left reveal-hidden">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-primary/20">
+<span class="flex text-yellow-400 text-sm">★★★★★</span>
+<span class="text-primary-fixed font-label-sm uppercase tracking-widest">Rated by Students Worldwide</span>
+</div>
+<h1 class="font-headline-lg text-[44px] md:text-[80px] leading-[1] font-bold tracking-tight text-on-surface">
+                    The Future of <span class="text-gradient">Learning</span> Starts Here.
+                </h1>
+<p class="font-body-lg text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed">
+                    Master any subject with interactive lessons, visual explanations, and AI-powered learning tailored to your unique cognitive style.
                 </p>
-<div class="flex flex-col md:flex-row items-center justify-center gap-4 pt-4">
-<button class="w-full md:w-auto px-10 py-4 rounded-full bg-primary text-on-primary font-body-md text-body-md font-semibold hover:opacity-90 active:scale-95 transition-all aura-shadow">
-                        Start Learning
+<div class="flex flex-col sm:flex-row items-center gap-5 pt-4">
+<button class="w-full sm:w-auto px-12 py-5 rounded-full bg-primary text-on-primary font-body-md text-body-md font-bold hover:scale-105 active:scale-95 transition-all aura-shadow shadow-primary/20">
+                        Get Started Free
                     </button>
-<button class="w-full md:w-auto px-10 py-4 rounded-full glass-panel text-on-surface font-body-md text-body-md font-medium hover:bg-white/10 transition-all border border-white/10">
-                        Explore Courses
+<button class="w-full sm:w-auto px-12 py-5 rounded-full glass-panel text-on-surface font-body-md text-body-md font-semibold hover:bg-white/10 transition-all border border-white/20">
+                        View Curriculum
                     </button>
 </div>
 </div>
-</section>
-<!-- Featured Subjects Section -->
-<section class="py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="text-center mb-16">
-<h2 class="font-headline-lg text-headline-lg mb-4">Popular Subjects</h2>
-<div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-gutter">
-<!-- Subject Cards -->
-<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
-<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[32px]">neurology</span>
-</div>
-<span class="font-body-md text-body-md font-medium">Artificial Intelligence</span>
-</div>
-<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
-<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[32px]">code</span>
-</div>
-<span class="font-body-md text-body-md font-medium">Programming</span>
-</div>
-<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
-<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[32px]">function</span>
-</div>
-<span class="font-body-md text-body-md font-medium">Mathematics</span>
-</div>
-<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
-<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[32px]">lyrics</span>
-</div>
-<span class="font-body-md text-body-md font-medium">Physics</span>
-</div>
-<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
-<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-error group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[32px]">urology</span>
-</div>
-<span class="font-body-md text-body-md font-medium">Biology</span>
-</div>
-<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
-<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary-fixed group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[32px]">science</span>
-</div>
-<span class="font-body-md text-body-md font-medium">Chemistry</span>
-</div>
-<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
-<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-tertiary-fixed-dim group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[32px]">payments</span>
-</div>
-<span class="font-body-md text-body-md font-medium">Business</span>
-</div>
-<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 transition-all cursor-pointer group">
-<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary-fixed group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-[32px]">translate</span>
-</div>
-<span class="font-body-md text-body-md font-medium">English</span>
-</div>
-</div>
-</section>
-<!-- Why Choose Aura Study Section -->
-<section class="py-24 bg-surface-container-lowest/50">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-<div class="lg:col-span-1 space-y-6">
-<h2 class="font-headline-lg text-headline-lg leading-tight">Elevate Your Understanding</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant">We strip away the noise and focus on cognitive clarity. Our platform is designed to make learning effortless and deeply engaging.</p>
-</div>
-<div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
-<div class="flex gap-6">
-<span class="material-symbols-outlined text-primary text-3xl">play_circle</span>
-<div>
-<h4 class="font-headline-md text-headline-md mb-2">Interactive Lessons</h4>
-<p class="text-on-surface-variant font-body-md">Don't just read—engage with active content.</p>
-</div>
-</div>
-<div class="flex gap-6">
-<span class="material-symbols-outlined text-secondary text-3xl">visibility</span>
-<div>
-<h4 class="font-headline-md text-headline-md mb-2">Visual Learning</h4>
-<p class="text-on-surface-variant font-body-md">Complex concepts simplified via beautiful diagrams.</p>
-</div>
-</div>
-<div class="flex gap-6">
-<span class="material-symbols-outlined text-tertiary text-3xl">fact_check</span>
-<div>
-<h4 class="font-headline-md text-headline-md mb-2">Practice Quizzes</h4>
-<p class="text-on-surface-variant font-body-md">Test your retention with smart, adaptive quizzes.</p>
-</div>
-</div>
-<div class="flex gap-6">
-<span class="material-symbols-outlined text-error text-3xl">style</span>
-<div>
-<h4 class="font-headline-md text-headline-md mb-2">Flashcards</h4>
-<p class="text-on-surface-variant font-body-md">Anki-style spaced repetition for long-term memory.</p>
-</div>
-</div>
-<div class="flex gap-6">
-<span class="material-symbols-outlined text-primary-fixed text-3xl">insights</span>
-<div>
-<h4 class="font-headline-md text-headline-md mb-2">Progress Tracking</h4>
-<p class="text-on-surface-variant font-body-md">Visualize your journey with detailed analytics.</p>
-</div>
-</div>
-<div class="flex gap-6 opacity-60">
-<span class="material-symbols-outlined text-on-surface-variant text-3xl">smart_toy</span>
-<div>
-<h4 class="font-headline-md text-headline-md mb-2 flex items-center gap-2">
-                                    AI Tutor <span class="text-[10px] bg-primary/20 text-primary px-2 py-0.5 rounded-full">COMING SOON</span>
-</h4>
-<p class="text-on-surface-variant font-body-md">Your 24/7 personal study companion.</p>
-</div>
-</div>
+<div class="hidden lg:flex justify-center items-center reveal-hidden" style="transition-delay: 200ms">
+<div class="relative w-full max-w-lg animate-float">
+<div class="absolute inset-0 bg-primary/20 blur-[100px] rounded-full"></div>
+<img alt="3D Learning Asset" class="relative z-10 w-full drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnuO5HOWaUjPwLS8St8eS1JhIwA71vQe6EkUxT0pTNRu7StSafLOri66KIR7zZC1uGPquQ_2s2RZE32xVL99zJryrM2S1D8jjxkKKWZHghPQ2lR2iGsvArjKjJWF2oUz3xiHEdjIpLhZUiHn9uUfU5GvhKUilCZH_WbA0AzjfUyPaJX_HpxjG6W-HvSOEbzK3PjxknA5sGEye86DtCRy4dzBOonX4ew5ZWA6Nh-RBAXVnIIgO_UW66DHVxO01w_3oTz621XzgNgw"/>
 </div>
 </div>
 </div>
 </section>
-<!-- Popular Courses Section -->
-<section class="py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+<!-- Search Section -->
+<section class="py-20 relative z-20 -mt-20 px-margin-mobile">
+<div class="max-w-4xl mx-auto space-y-10 reveal-hidden">
+<div class="text-center space-y-4">
+<h2 class="font-headline-lg text-headline-lg md:text-4xl">What do you want to learn today?</h2>
+</div>
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+<div class="relative flex items-center glass-panel rounded-2xl p-2 border-white/20">
+<span class="material-symbols-outlined ml-6 text-on-surface-variant">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 px-6 py-4 text-lg placeholder-on-surface-variant/50" placeholder="Search for courses, subjects, or concepts..." type="text"/>
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-xl font-bold mr-2 hover:brightness-110 transition-all">Search</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Subject Cards Section -->
+<section class="py-32 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex justify-between items-end mb-16 reveal-hidden">
 <div class="space-y-2">
-<h2 class="font-headline-lg text-headline-lg">Popular Courses</h2>
-<p class="text-on-surface-variant font-body-lg">Hand-picked curriculum for high-performance students.</p>
+<h2 class="font-headline-lg text-headline-lg md:text-4xl font-bold">Explore by Subject</h2>
+<p class="text-on-surface-variant text-body-lg">Dive deep into our structured learning paths.</p>
 </div>
-<a class="text-primary font-body-md flex items-center gap-2 hover:underline" href="#">
-                    View all 500+ lessons <span class="material-symbols-outlined text-sm">arrow_forward</span>
+<a class="text-primary font-bold flex items-center gap-2 hover:gap-3 transition-all group" href="#">
+                Browse All <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
 </a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-<!-- Course Card 1 -->
-<div class="glass-panel rounded-2xl overflow-hidden aura-shadow group cursor-pointer border border-white/5">
-<div class="h-48 overflow-hidden relative">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A macro cinematic shot of a sleek, transparent glass brain glowing with soft purple neural pathways, set against a deep navy, minimalist background in the style of high-end tech branding. The lighting is ethereal and soft, emphasizing clarity and intelligence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnuO5HOWaUjPwLS8St8eS1JhIwA71vQe6EkUxT0pTNRu7StSafLOri66KIR7zZC1uGPquQ_2s2RZE32xVL99zJryrM2S1D8jjxkKKWZHghPQ2lR2iGsvArjKjJWF2oUz3xiHEdjIpLhZUiHn9uUfU5GvhKUilCZH_WbA0AzjfUyPaJX_HpxjG6W-HvSOEbzK3PjxknA5sGEye86DtCRy4dzBOonX4ew5ZWA6Nh-RBAXVnIIgO_UW66DHVxO01w_3oTz621XzgNgw"/>
-<div class="absolute top-4 left-4">
-<span class="bg-primary/20 text-primary-fixed px-3 py-1 rounded-full font-label-sm backdrop-blur-md">INTERMEDIATE</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="glass-panel p-8 rounded-2xl flex flex-col items-start gap-6 hover:-translate-y-2 transition-all duration-300 cursor-pointer group hover:border-primary/40 reveal-hidden">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-500">
+<span class="material-symbols-outlined text-3xl">psychology</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md font-bold mb-2">Artificial Intelligence</h3>
+<p class="text-on-surface-variant text-body-md leading-relaxed mb-4">Master machine learning and neural networks.</p>
 </div>
 </div>
-<div class="p-6 space-y-4">
-<h3 class="font-headline-md text-headline-md leading-tight">Modern AI &amp; Neural Networks</h3>
-<div class="flex items-center gap-4 text-on-surface-variant font-label-sm">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 12h 30m</span>
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">person</span> 2.4k</span>
+<div class="glass-panel p-8 rounded-2xl flex flex-col items-start gap-6 hover:-translate-y-2 transition-all duration-300 cursor-pointer group hover:border-secondary/40 reveal-hidden">
+<div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all duration-500">
+<span class="material-symbols-outlined text-3xl">code</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md font-bold mb-2">Programming</h3>
+<p class="text-on-surface-variant text-body-md leading-relaxed mb-4">From Python basics to complex systems architecture.</p>
 </div>
 </div>
+<div class="glass-panel p-8 rounded-2xl flex flex-col items-start gap-6 hover:-translate-y-2 transition-all duration-300 cursor-pointer group hover:border-tertiary/40 reveal-hidden">
+<div class="w-14 h-14 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary group-hover:bg-tertiary group-hover:text-on-tertiary transition-all duration-500">
+<span class="material-symbols-outlined text-3xl">functions</span>
 </div>
-<!-- Course Card 2 -->
-<div class="glass-panel rounded-2xl overflow-hidden aura-shadow group cursor-pointer border border-white/5">
-<div class="h-48 overflow-hidden relative">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Abstract 3D rendered geometric shapes representing mathematical precision, featuring translucent pyramids and spheres in a calm, monochromatic sky blue palette. Minimalist composition with soft ambient occlusion shadows and premium material finishes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXv6GVmk4PxPnr7o3o-GRq8J5v4rX2HqQRDRySintN4jksFvOl0agomDPvPPb9achtKW4HBq70C8rGhEZj4bh4aYXq6iaHocoRgn5PxEsqNgEDFPels1CySHc-jVaJ1pX4p5fcU5KaH1-An7BBE5RU-kHh3Itxxa_avxKNOjyJ7mIQszDPelN9h_CM_yYjiB7kR_eX3t2hLHrYPTqddQ4d6yV5OxxzKuFvPNv1BZ0_poZHxX3im2nLr9drMvkHmje8UvcJtTJ6EA"/>
-<div class="absolute top-4 left-4">
-<span class="bg-secondary/20 text-secondary-fixed px-3 py-1 rounded-full font-label-sm backdrop-blur-md">BEGINNER</span>
-</div>
-</div>
-<div class="p-6 space-y-4">
-<h3 class="font-headline-md text-headline-md leading-tight">Advanced Calculus for Scientists</h3>
-<div class="flex items-center gap-4 text-on-surface-variant font-label-sm">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 18h 15m</span>
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">person</span> 1.8k</span>
+<div>
+<h3 class="font-headline-md text-headline-md font-bold mb-2">Mathematics</h3>
+<p class="text-on-surface-variant text-body-md leading-relaxed mb-4">Deep dive into calculus and discrete math.</p>
 </div>
 </div>
+<div class="glass-panel p-8 rounded-2xl flex flex-col items-start gap-6 hover:-translate-y-2 transition-all duration-300 cursor-pointer group hover:border-error/40 reveal-hidden">
+<div class="w-14 h-14 rounded-2xl bg-error/10 flex items-center justify-center text-error group-hover:bg-error group-hover:text-on-error transition-all duration-500">
+<span class="material-symbols-outlined text-3xl">science</span>
 </div>
-<!-- Course Card 3 -->
-<div class="glass-panel rounded-2xl overflow-hidden aura-shadow group cursor-pointer border border-white/5">
-<div class="h-48 overflow-hidden relative">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A high-contrast, minimalist photograph of a sleek telescope lens reflecting a vibrant night sky. The scene is dominated by deep indigo and silver tones, conveying a sense of exploration and scientific discovery. Soft bokeh lighting in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACiQTaXpxBGwujdP7qEWa337MAivyJlLwS6Khu3-YG4Cf81XrvEIfz1dGxJ0gJwS4mtZyKpLt8kggh9BdogszoilQzWrDNBoLHq7ZXTTJvZrwv8MNGLzogQ-0kJhhPnZU7hotVAx8XOyeAR86a_ZubhMCaXGfLcNTiEynIy2bfwt88DW-XcK7lbOV8bd-LzDU-FR9MX3cS01-s_bNceEm4W_bVxfYCiQtEpHxJTbCMPYI59-xwVaDS8CtYDilR8PkXn9p2VMBAdA"/>
-<div class="absolute top-4 left-4">
-<span class="bg-tertiary/20 text-tertiary-fixed px-3 py-1 rounded-full font-label-sm backdrop-blur-md">ALL LEVELS</span>
-</div>
-</div>
-<div class="p-6 space-y-4">
-<h3 class="font-headline-md text-headline-md leading-tight">Quantum Mechanics Simplified</h3>
-<div class="flex items-center gap-4 text-on-surface-variant font-label-sm">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 24h 00m</span>
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">person</span> 950</span>
+<div>
+<h3 class="font-headline-md text-headline-md font-bold mb-2">Physics</h3>
+<p class="text-on-surface-variant text-body-md leading-relaxed mb-4">Quantum mechanics and thermodynamics explained.</p>
 </div>
 </div>
 </div>
-<!-- Course Card 4 -->
-<div class="glass-panel rounded-2xl overflow-hidden aura-shadow group cursor-pointer border border-white/5">
-<div class="h-48 overflow-hidden relative">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Close-up of a digital tablet showing a clean, minimalist code editor with soft syntax highlighting in blue and purple. The surrounding environment is a modern, dimly lit study space with a soft-focus wooden desk and a designer lamp." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1AI1-V-rSqfhvlm8CxyfXfehk9nrssn4OPPybDppTMv8qrfVFpeENwDx6SotFMXglf01_pYCkXALN8NK0ehmyg_-_4rSg-lxGPPL8fwaMGHjExUUQTTMrRg7t8Pzd5NZ1lnzCB_wLhpRvieYGWXV4zwL1U9JqxpUK3WfOBw7c2uLZy2c67sQxnNnBbFJ3gikmNWh71fIA_GCE49TZmTPgjWuGvqAHhsXTbHPMkWE8N0tX0_2gnwE9C84-kkIkByj5GpxAnH07RA"/>
-<div class="absolute top-4 left-4">
-<span class="bg-error/20 text-error px-3 py-1 rounded-full font-label-sm backdrop-blur-md">EXPERT</span>
+</section>
+<!-- Student Success Section -->
+<section class="py-32 bg-surface-container-lowest/50 relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/5 blur-[120px] rounded-full translate-y-1/2"></div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 text-center">
+<h2 class="font-headline-lg text-4xl md:text-5xl font-bold mb-20 reveal-hidden">Trusted by Learners Worldwide</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="space-y-4 reveal-hidden">
+<div class="text-[56px] md:text-[72px] font-black text-primary tracking-tighter counter" data-target="50000">0</div>
+<div class="text-on-surface-variant font-bold uppercase tracking-[0.2em] text-sm">Students</div>
+</div>
+<div class="space-y-4 reveal-hidden">
+<div class="text-[56px] md:text-[72px] font-black text-secondary tracking-tighter counter" data-target="1500">0</div>
+<div class="text-on-surface-variant font-bold uppercase tracking-[0.2em] text-sm">Lessons</div>
+</div>
+<div class="space-y-4 reveal-hidden">
+<div class="text-[56px] md:text-[72px] font-black text-tertiary tracking-tighter counter" data-target="120">0</div>
+<div class="text-on-surface-variant font-bold uppercase tracking-[0.2em] text-sm">Countries</div>
+</div>
+<div class="space-y-4 reveal-hidden">
+<div class="text-[56px] md:text-[72px] font-black text-error tracking-tighter counter" data-target="95">0</div>
+<div class="text-on-surface-variant font-bold uppercase tracking-[0.2em] text-sm">Success Rate %</div>
 </div>
 </div>
-<div class="p-6 space-y-4">
-<h3 class="font-headline-md text-headline-md leading-tight">Mastering Rust Architecture</h3>
-<div class="flex items-center gap-4 text-on-surface-variant font-label-sm">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 15h 45m</span>
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">person</span> 3.1k</span>
+</div>
+</section>
+<!-- Learning Roadmap Section -->
+<section class="py-32 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-20 space-y-4 reveal-hidden">
+<h2 class="font-headline-lg text-4xl md:text-5xl font-bold">Your Learning Roadmap</h2>
+<p class="text-on-surface-variant text-lg">A structured path from curiosity to mastery.</p>
+</div>
+<div class="relative">
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-white/5 -translate-y-1/2 hidden lg:block"></div>
+<div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-8 relative z-10">
+<div class="flex flex-col items-center text-center space-y-6 reveal-hidden">
+<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center text-primary aura-shadow border-primary/20">
+<span class="material-symbols-outlined text-3xl">category</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-2">Step 1</h4>
+<p class="text-on-surface-variant text-sm">Choose Subject</p>
+</div>
+</div>
+<div class="flex flex-col items-center text-center space-y-6 reveal-hidden" style="transition-delay: 100ms">
+<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center text-secondary aura-shadow border-secondary/20">
+<span class="material-symbols-outlined text-3xl">play_circle</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-2">Step 2</h4>
+<p class="text-on-surface-variant text-sm">Interactive Lessons</p>
+</div>
+</div>
+<div class="flex flex-col items-center text-center space-y-6 reveal-hidden" style="transition-delay: 200ms">
+<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center text-tertiary aura-shadow border-tertiary/20">
+<span class="material-symbols-outlined text-3xl">fact_check</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-2">Step 3</h4>
+<p class="text-on-surface-variant text-sm">Practice Quiz</p>
+</div>
+</div>
+<div class="flex flex-col items-center text-center space-y-6 reveal-hidden" style="transition-delay: 300ms">
+<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center text-error border-error/20">
+<span class="material-symbols-outlined text-3xl">style</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-2">Step 4</h4>
+<p class="text-on-surface-variant text-sm">Smart Flashcards</p>
+</div>
+</div>
+<div class="flex flex-col items-center text-center space-y-6 reveal-hidden" style="transition-delay: 400ms">
+<div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary aura-shadow border border-primary/40">
+<span class="material-symbols-outlined text-3xl">verified</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-2">Step 5</h4>
+<p class="text-on-surface-variant text-sm">Get Certified</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Student Stats Section -->
-<section class="py-20 border-y border-white/5 bg-surface-container-low">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-<div class="space-y-2">
-<div class="text-[48px] font-bold text-primary tracking-tighter">10K+</div>
-<div class="text-on-surface-variant font-body-md uppercase tracking-widest">Active Students</div>
+<!-- Streak & Badges Section -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest/30">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8 reveal-hidden">
+<h2 class="font-headline-lg text-4xl md:text-5xl font-bold leading-tight">Stay Motivated, <br/><span class="text-gradient">Achieve More</span></h2>
+<p class="text-on-surface-variant text-lg">Gamified learning designed to keep you consistent and reward your progress every single day.</p>
+<div class="grid grid-cols-2 gap-6 pt-4">
+<div class="glass-panel p-6 rounded-3xl border-white/10 hover:border-primary/30 transition-all cursor-pointer">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-primary">local_fire_department</span>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Daily Streak</span>
 </div>
-<div class="space-y-2">
-<div class="text-[48px] font-bold text-secondary tracking-tighter">500+</div>
-<div class="text-on-surface-variant font-body-md uppercase tracking-widest">Premium Lessons</div>
+<p class="text-3xl font-black">12 Days</p>
 </div>
-<div class="space-y-2">
-<div class="text-[48px] font-bold text-tertiary tracking-tighter">100+</div>
-<div class="text-on-surface-variant font-body-md uppercase tracking-widest">Specialized Subjects</div>
+<div class="glass-panel p-6 rounded-3xl border-white/10 hover:border-secondary/30 transition-all cursor-pointer">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-secondary">trending_up</span>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">XP Earned</span>
+</div>
+<p class="text-3xl font-black">4,250</p>
+</div>
+</div>
+</div>
+<div class="relative reveal-hidden" style="transition-delay: 200ms">
+<div class="absolute -inset-10 bg-primary/10 blur-[80px] rounded-full opacity-50"></div>
+<div class="relative glass-panel rounded-[40px] p-10 border-white/10 aura-shadow grid grid-cols-3 gap-6">
+<div class="flex flex-col items-center gap-3">
+<div class="w-20 h-20 rounded-full glass-panel border-primary/20 flex items-center justify-center animate-float" style="animation-delay: 0.1s">
+<span class="material-symbols-outlined text-primary text-4xl">bolt</span>
+</div>
+<p class="text-[10px] font-bold uppercase text-center">Fast Learner</p>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="w-20 h-20 rounded-full glass-panel border-secondary/20 flex items-center justify-center animate-float" style="animation-delay: 0.5s">
+<span class="material-symbols-outlined text-secondary text-4xl">quiz</span>
+</div>
+<p class="text-[10px] font-bold uppercase text-center">Quiz Master</p>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="w-20 h-20 rounded-full glass-panel border-error/20 flex items-center justify-center animate-float" style="animation-delay: 0.9s">
+<span class="material-symbols-outlined text-error text-4xl">calendar_today</span>
+</div>
+<p class="text-[10px] font-bold uppercase text-center">7 Day Streak</p>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="w-20 h-20 rounded-full glass-panel border-tertiary/20 flex items-center justify-center animate-float" style="animation-delay: 1.3s">
+<span class="material-symbols-outlined text-tertiary text-4xl">workspace_premium</span>
+</div>
+<p class="text-[10px] font-bold uppercase text-center">Top Performer</p>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="w-20 h-20 rounded-full glass-panel border-primary-fixed/20 flex items-center justify-center animate-float" style="animation-delay: 1.7s">
+<span class="material-symbols-outlined text-primary-fixed text-4xl">smart_toy</span>
+</div>
+<p class="text-[10px] font-bold uppercase text-center">AI Explorer</p>
+</div>
+<div class="flex flex-col items-center gap-3 opacity-30">
+<div class="w-20 h-20 rounded-full glass-panel border-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-white/20 text-4xl">lock</span>
+</div>
+<p class="text-[10px] font-bold uppercase text-center">???</p>
+</div>
 </div>
 </div>
 </div>
 </section>
-<!-- Testimonials Section -->
-<section class="py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="text-center mb-16 space-y-4">
-<h2 class="font-headline-lg text-headline-lg">Trusted by high achievers</h2>
-<p class="text-on-surface-variant font-body-lg">Join the thousands who have transformed their learning habits.</p>
+<!-- Student Reviews Carousel -->
+<section class="py-32 overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-20 reveal-hidden text-center">
+<h2 class="font-headline-lg text-4xl md:text-5xl font-bold">What Our Students Say</h2>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Testimonial 1 -->
-<div class="glass-panel p-8 rounded-2xl aura-shadow border border-white/5 flex flex-col justify-between">
-<p class="font-body-lg text-on-surface italic leading-relaxed opacity-90">"The visual explanations for physics are the best I've seen. It finally clicked after months of struggling with textbooks."</p>
+<div class="relative reveal-hidden">
+<div class="carousel-track px-margin-mobile md:px-0 gap-8" id="testimonial-carousel">
+<div class="min-w-[320px] md:min-w-[400px] glass-panel p-10 rounded-3xl border-white/5 flex flex-col justify-between">
+<p class="text-lg italic leading-relaxed text-on-surface">"The visual explanations for physics are unprecedented. It finally clicked after months of struggling with textbooks."</p>
 <div class="mt-8 flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-surface-container-high border border-white/10 flex items-center justify-center text-primary font-bold">SM</div>
+<img alt="Sarah" class="w-12 h-12 rounded-full border border-primary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGorE4VuA_1bcfEPIUBaI_l_pyGep-CwC04Ua8L9tQn24i2HLjWEF_9PsJdODmWhftxJGfNbUMtbwWNDdkA1sUR6VIDtATG49qZt68hbxlzv-IyTUBrab9Uok3-AxSK3t43kCKH8ihp_U4a9Qk1Uby7jdeGZtC6tNTh-rsFeIaoSA34Ks9c2kIYXWHcI8_kxNEJAo-ad9Z63FcPoYaX0g4lSCXeYKmtE6HM0jg4mhX7Yyy1EbGxErBLQw7K6dBvlIOsY4rlxP2OA"/>
 <div>
-<p class="font-body-md font-semibold">Sarah Mitchell</p>
-<p class="text-on-surface-variant font-label-sm">Pre-Med Student</p>
+<p class="font-bold">Sarah Mitchell</p>
+<p class="text-xs text-on-surface-variant">UK • ⭐⭐⭐⭐⭐</p>
 </div>
 </div>
 </div>
-<!-- Testimonial 2 -->
-<div class="glass-panel p-8 rounded-2xl aura-shadow border border-white/5 flex flex-col justify-between scale-105 z-10 bg-surface-container-low">
-<p class="font-body-lg text-on-surface italic leading-relaxed opacity-90">"Aura Study's interface is so clean. It's the only learning platform that doesn't feel like a chore to use."</p>
+<div class="min-w-[320px] md:min-w-[400px] glass-panel p-10 rounded-3xl border-white/5 flex flex-col justify-between">
+<p class="text-lg italic leading-relaxed text-on-surface">"Aura Study's interface is so clean. It's the only platform that doesn't feel like a chore. The AI tutor is incredible."</p>
 <div class="mt-8 flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-surface-container-high border border-white/10 flex items-center justify-center text-secondary font-bold">JL</div>
+<img alt="James" class="w-12 h-12 rounded-full border border-secondary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtRbJUdP74eWDN89td6CPwaF20-1XQx0BVgxo9Z1jTOdCmhUSITGXUlmQ0vHMrL4wAsDikaGu1IJIumoHpV0k5Pzs1oWbZ1S6O4rU4YEKq48wrd_w7slj_LfJyrzRrr1ZIrZhn5YutEUArvXA3wmdHYSaZ5eLdlbVwyGtGQRf2rDxKyJN5DdFLsc-4zRKZdq7FMqE1fL9UglLrih6IO0fSyQVL1npwfoTj8NYIbAZdQCTD3aY3TX3mVq7l6-52-zmar5MzPuE7Uw"/>
 <div>
-<p class="font-body-md font-semibold">James Liang</p>
-<p class="text-on-surface-variant font-label-sm">Computer Science Major</p>
+<p class="font-bold">James Liang</p>
+<p class="text-xs text-on-surface-variant">USA • ⭐⭐⭐⭐⭐</p>
 </div>
 </div>
 </div>
-<!-- Testimonial 3 -->
-<div class="glass-panel p-8 rounded-2xl aura-shadow border border-white/5 flex flex-col justify-between">
-<p class="font-body-lg text-on-surface italic leading-relaxed opacity-90">"The flashcard system integrated directly into the courses is a game-changer for my exam prep."</p>
+<div class="min-w-[320px] md:min-w-[400px] glass-panel p-10 rounded-3xl border-white/5 flex flex-col justify-between">
+<p class="text-lg italic leading-relaxed text-on-surface">"The flashcard system integrated directly into the course flow is genius. Spaced repetition actually works here."</p>
 <div class="mt-8 flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-surface-container-high border border-white/10 flex items-center justify-center text-tertiary font-bold">EK</div>
+<img alt="Elena" class="w-12 h-12 rounded-full border border-tertiary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1V9ooM9DthiWZyQiuufCFRUBij40n4VTnoC3jJD0sh1pSH104cWgu4HpSnBojSW2_ql4Xx-G0Jc-9Poud38rVZzs-ir7rpjWh2MRIuOIkk_OmWZfTB0PP96gNqFP4d3EHWY9PXbd0_0YNHllsG_JmEnhppgAefad_g5OsdA1jOog8f3Y_q5V6zLbSQTf1rJpq5dPXLKn59BIM-dz8TAdMxfFjP0K6i_YNUU68pVexvgz1ViGPFFzkecPEnv0C46bRYBC0eB9Qvw"/>
 <div>
-<p class="font-body-md font-semibold">Elena Kostic</p>
-<p class="text-on-surface-variant font-label-sm">Research Fellow</p>
+<p class="font-bold">Elena Kostic</p>
+<p class="text-xs text-on-surface-variant">Serbia • ⭐⭐⭐⭐⭐</p>
+</div>
+</div>
+</div>
+<div class="min-w-[320px] md:min-w-[400px] glass-panel p-10 rounded-3xl border-white/5 flex flex-col justify-between">
+<p class="text-lg italic leading-relaxed text-on-surface">"I never thought learning Rust would be this intuitive. The interactive coding environment is best-in-class."</p>
+<div class="mt-8 flex items-center gap-4">
+<img alt="Marcus" class="w-12 h-12 rounded-full border border-error/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkuj41GFCzufhfEbPHr4drF7hoU1Q29KMEJXf_4kohntgOpjIAMtxMQsCVLcbGsiJ0sT9XjEKUWAg9aoCtqe22UUmrJG1GpwApFLmq7WymlbrmFq5Blv00nqy9RD6BqwuF_7lu22CylydNZOejs61dC6alVpNDa1Z0XuJa2pMDBlgSx2fAKTQGZ8sKVIBDpZsm6fqTXtJ2-3Dk-OEnjcuTnca7WJwE4AzCaUziNIDRjNY8kIsfzqGcqVJMdRJ4MZUMyNao3Nkxww"/>
+<div>
+<p class="font-bold">Marcus Chen</p>
+<p class="text-xs text-on-surface-variant">Canada • ⭐⭐⭐⭐⭐</p>
+</div>
 </div>
 </div>
 </div>
 </div>
 </section>
 <!-- FAQ Section -->
-<section class="py-24 bg-surface-container-lowest">
+<section class="py-32 bg-surface-container-lowest">
 <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="text-center mb-16">
-<h2 class="font-headline-lg text-headline-lg">Frequently Asked Questions</h2>
+<div class="text-center mb-20 space-y-4 reveal-hidden">
+<h2 class="font-headline-lg text-4xl font-bold">Frequently Asked Questions</h2>
 </div>
-<div class="space-y-4">
-<!-- FAQ Item -->
-<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all">
+<div class="space-y-4 reveal-hidden">
+<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 open:border-primary/20">
 <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-<span class="font-body-lg font-medium">How do the interactive lessons work?</span>
-<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+<span class="font-bold">What is Aura Study?</span>
+<div class="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center transition-transform group-open:rotate-180">
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
 </summary>
-<div class="px-6 pb-6 text-on-surface-variant font-body-md">
-                            Our interactive lessons combine high-quality video, 3D diagrams you can manipulate, and real-time coding or problem-solving environments to ensure active participation.
-                        </div>
+<div class="px-6 pb-6 text-on-surface-variant text-sm">
+                        Aura Study is a premium education platform designed with cognitive science principles to help students achieve deep academic mastery through visual and interactive learning.
+                    </div>
 </details>
-<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all">
+<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 open:border-primary/20">
 <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-<span class="font-body-lg font-medium">Can I access Aura Study on my mobile device?</span>
-<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+<span class="font-bold">How much does it cost?</span>
+<div class="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center transition-transform group-open:rotate-180">
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
 </summary>
-<div class="px-6 pb-6 text-on-surface-variant font-body-md">
-                            Absolutely. Aura Study is fully responsive and offers a native-like experience on iOS and Android browsers, allowing you to study anywhere.
-                        </div>
+<div class="px-6 pb-6 text-on-surface-variant text-sm">
+                        We offer a generous free tier for beginners. Premium plans for advanced courses and AI-powered personalized coaching start at $12/month.
+                    </div>
 </details>
-<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all">
+<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 open:border-primary/20">
 <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-<span class="font-body-lg font-medium">Are there any prerequisite for the courses?</span>
-<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+<span class="font-bold">Is the AI Tutor available 24/7?</span>
+<div class="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center transition-transform group-open:rotate-180">
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
 </summary>
-<div class="px-6 pb-6 text-on-surface-variant font-body-md">
-                            Prerequisites vary by course. However, most of our subjects start from foundational concepts and build up to advanced mastery.
-                        </div>
+<div class="px-6 pb-6 text-on-surface-variant text-sm">
+                        Yes, our AI Tutor is built on state-of-the-art LLMs and is available around the clock to answer your questions and provide personalized explanations.
+                    </div>
 </details>
-<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all">
+<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 open:border-primary/20">
 <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-<span class="font-body-lg font-medium">What makes Aura Study different from other platforms?</span>
-<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+<span class="font-bold">Can I access lessons on mobile?</span>
+<div class="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center transition-transform group-open:rotate-180">
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
 </summary>
-<div class="px-6 pb-6 text-on-surface-variant font-body-md">
-                            We focus on "Calm Tech"—reducing cognitive load through minimalist design and visual storytelling, making complex academic subjects feel intuitive and accessible.
-                        </div>
+<div class="px-6 pb-6 text-on-surface-variant text-sm">
+                        Absolutely. Aura Study is fully responsive and available as a progressive web app that you can install on any iOS or Android device.
+                    </div>
 </details>
-<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all">
+<details class="group glass-panel rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 open:border-primary/20">
 <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-<span class="font-body-lg font-medium">When will the AI Tutor be available?</span>
-<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+<span class="font-bold">Do I get certificates for completing courses?</span>
+<div class="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center transition-transform group-open:rotate-180">
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
 </summary>
-<div class="px-6 pb-6 text-on-surface-variant font-body-md">
-                            The AI Tutor is currently in beta testing with select students. We plan to roll it out to all premium members by Q4 2026.
-                        </div>
+<div class="px-6 pb-6 text-on-surface-variant text-sm">
+                        Yes, every completed learning path awards a verifiable digital certificate that you can share on LinkedIn or with potential employers.
+                    </div>
 </details>
 </div>
 </div>
 </section>
 <!-- CTA Section -->
-<section class="py-24 px-margin-mobile md:px-margin-desktop">
-<div class="max-w-container-max mx-auto glass-panel rounded-[40px] p-12 md:p-24 text-center space-y-8 relative overflow-hidden aura-shadow border border-white/10">
-<div class="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-secondary/10 pointer-events-none"></div>
-<h2 class="font-headline-lg text-[40px] md:text-[56px] leading-tight font-bold text-on-surface">Ready to transform your mind?</h2>
-<p class="text-on-surface-variant font-body-lg max-w-xl mx-auto">Join a global community of lifelong learners and master the subjects of tomorrow.</p>
-<div class="pt-6">
-<button class="px-12 py-5 rounded-full bg-primary text-on-primary font-body-md text-body-md font-bold hover:scale-105 active:scale-95 transition-all aura-shadow">
-                        Start Your Journey Now
-                    </button>
+<section class="py-32 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto glass-panel rounded-[60px] p-16 md:p-32 text-center space-y-10 relative overflow-hidden aura-shadow border border-white/10 reveal-hidden">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20 pointer-events-none opacity-50"></div>
+<h2 class="font-headline-lg text-5xl md:text-7xl leading-tight font-bold text-on-surface relative z-10">Ready to transform <br/><span class="text-gradient">your mind?</span></h2>
+<p class="text-on-surface-variant text-xl max-w-2xl mx-auto relative z-10">Join a global community of lifelong learners and master the subjects of tomorrow.</p>
+<div class="pt-8 relative z-10">
+<button class="px-16 py-6 rounded-full bg-primary text-on-primary font-bold text-lg hover:scale-105 active:scale-95 transition-all aura-shadow shadow-primary/30">
+                    Start Your Journey Now — Free
+                </button>
 </div>
 </div>
 </section>
 </main>
-<!-- Footer -->
-<footer class="bg-surface dark:bg-surface-container-lowest w-full py-12 border-t border-white/5">
-<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-base">
-<div class="flex flex-col items-center md:items-start gap-4">
-<div class="font-headline-md text-headline-md font-bold text-on-surface">
-                    Aura Study
-                </div>
-<p class="text-on-surface-variant font-body-md opacity-60">Copyright © 2026 Aura Study</p>
+<!-- Professional Footer -->
+<footer class="bg-surface-container-lowest w-full pt-24 pb-12 border-t border-white/5">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 lg:gap-8 mb-20">
+<div class="lg:col-span-2 space-y-8">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-xl">auto_awesome</span>
 </div>
-<div class="flex gap-8">
-<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">About</a>
-<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Privacy Policy</a>
-<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Terms</a>
-<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Contact</a>
+<div class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface">Aura Study</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-xs">
+                A premium education platform dedicated to cognitive clarity and deep academic mastery. We believe in learning that lasts a lifetime.
+            </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors border border-white/5" href="#"><span class="material-symbols-outlined text-xl">public</span></a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors border border-white/5" href="#"><span class="material-symbols-outlined text-xl">share</span></a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors border border-white/5" href="#"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-bold mb-8 text-on-surface">Learning</h4>
+<ul class="space-y-4 text-on-surface-variant text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">All Courses</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Subjects</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Curriculum</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Scholarships</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Enterprise</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-8 text-on-surface">Community</h4>
+<ul class="space-y-4 text-on-surface-variant text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Forums</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Press Kit</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-8 text-on-surface">Support</h4>
+<ul class="space-y-4 text-on-surface-variant text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cookies</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col md:flex-row items-center gap-6">
+<p class="text-on-surface-variant text-xs">© 2026 Aura Study. All rights reserved.</p>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> SYSTEMS NORMAL
+            </div>
+<p class="text-on-surface-variant text-xs">Made with ❤️ for the future of education.</p>
+</div>
+<div class="flex items-center gap-6">
+<select class="bg-transparent border-none text-xs text-on-surface-variant focus:ring-0 cursor-pointer hover:text-primary">
+<option>English (US)</option>
+<option>Spanish</option>
+<option>French</option>
+</select>
+<select class="bg-transparent border-none text-xs text-on-surface-variant focus:ring-0 cursor-pointer hover:text-primary">
+<option>United States</option>
+<option>United Kingdom</option>
+<option>Germany</option>
+</select>
 </div>
 </div>
 </footer>
 <script>
-        // Simple intersection observer for reveal animations
-        const observerOptions = {
-            threshold: 0.1
-        };
+    // WebGL Background Simulation
+    const canvas = document.getElementById('webgl-canvas');
+    const gl = canvas.getContext('webgl');
+    if (gl) {
+        const vertexShaderSource = `attribute vec2 position; varying vec2 v_texCoord; void main() { v_texCoord = position * 0.5 + 0.5; v_texCoord.y = 1.0 - v_texCoord.y; gl_Position = vec4(position, 0.0, 1.0); }`;
+        const fragmentShaderSource = `precision highp float; varying vec2 v_texCoord; uniform float u_time; void main() { vec2 uv = v_texCoord; float noise1 = sin(uv.x * 3.0 + u_time * 0.2) * cos(uv.y * 2.0 - u_time * 0.1); float noise2 = cos(uv.y * 4.0 + u_time * 0.15) * sin(uv.x * 2.0 + u_time * 0.25); vec3 color1 = vec3(0.08, 0.07, 0.1); vec3 color2 = vec3(0.15, 0.1, 0.25); float mixFactor = (noise1 + noise2 + 1.0) / 2.0; vec3 finalColor = mix(color1, color2, mixFactor); float vignette = 1.0 - length(uv - 0.5) * 0.8; gl_FragColor = vec4(finalColor * vignette, 1.0); }`;
+        function createShader(gl, type, source) { const shader = gl.createShader(type); gl.shaderSource(shader, source); gl.compileShader(shader); return shader; }
+        const program = gl.createProgram();
+        gl.attachShader(program, createShader(gl, gl.VERTEX_SHADER, vertexShaderSource));
+        gl.attachShader(program, createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource));
+        gl.linkProgram(program); gl.useProgram(program);
+        const positionBuffer = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
+        const posLoc = gl.getAttribLocation(program, "position"); gl.enableVertexAttribArray(posLoc); gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+        const timeLoc = gl.getUniformLocation(program, "u_time");
+        function render(time) { canvas.width = canvas.clientWidth; canvas.height = canvas.clientHeight; gl.viewport(0, 0, canvas.width, canvas.height); gl.uniform1f(timeLoc, time * 0.001); gl.drawArrays(gl.TRIANGLES, 0, 6); requestAnimationFrame(render); }
+        requestAnimationFrame(render);
+    }
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+    // Floating Particles
+    const container = document.getElementById('particles-container');
+    for (let i = 0; i < 50; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 3 + 1;
+        p.style.width = `${size}px`; p.style.height = `${size}px`;
+        p.style.left = `${Math.random() * 100}%`; p.style.top = `${Math.random() * 100}%`;
+        p.style.animation = `float ${Math.random() * 10 + 5}s linear infinite`;
+        p.style.animationDelay = `${Math.random() * 5}s`;
+        container.appendChild(p);
+    }
+
+    // Intersection Observer for Reveal & Counters
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-visible');
+                if (entry.target.classList.contains('counter')) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    let count = 0;
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    const update = () => {
+                        count += step;
+                        if (count < target) {
+                            entry.target.innerText = Math.floor(count).toLocaleString() + (target === 95 ? '' : '+');
+                            requestAnimationFrame(update);
+                        } else {
+                            entry.target.innerText = target.toLocaleString() + (target === 95 ? '' : '+');
+                        }
+                    };
+                    update();
                 }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section > div').forEach(el => {
-            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
-            observer.observe(el);
+            }
         });
-    </script>
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal-hidden, .counter').forEach(el => observer.observe(el));
+
+    // Testimonial Carousel Auto-slide
+    const carousel = document.getElementById('testimonial-carousel');
+    let scrollPos = 0;
+    setInterval(() => {
+        scrollPos += 400 + 32; // card width + gap
+        if (scrollPos >= carousel.scrollWidth - window.innerWidth) scrollPos = 0;
+        carousel.style.transform = `translateX(-${scrollPos}px)`;
+    }, 4000);
+</script>
 </body></html>
